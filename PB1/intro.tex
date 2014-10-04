@@ -1,0 +1,160 @@
+\section{Exercise 1}
+
+%\usepackage{indentfirst}
+%\setlength{\parindent}{2em} 
+\paragraph*{1}
+I shorten the notation by using sin as a replacement for sin(x) and cos as a replacement for cos(x).
+We use the binet formula to get the power of $A^n$.
+We first estimate the eigenvectors, then concatenate them into matrix $P$ and use this matrix to compute the diagonal matrix $B$, which can be used to directly take the power for the matrix $A$. Afterwards we need to reverse the operations, which we had done on achieving $B$ to get $A^n$.
+\begin{eqnarray*}
+\left( \begin{array}{cc}
+\cos & \sin \\
+-\sin & \cos \\
+\end{array} \right)^n , v = \left( \begin{array}{c} x_1\\x_2 \end{array} \right), ( A-\lambda I )v = 0
+\\
+\left( \begin{array}{cc}
+\cos & \sin \\
+- \sin & \cos 
+\end{array}
+\right) -
+\left( \begin{array}{cc}
+\lambda & 0 \\
+0 & \lambda
+\end{array} 
+\right)
+= \\
+(\cos ^2 - \lambda) + \sin ^2 = 0 \\
+\lambda _1 = \ii \sin + \cos \\
+\lambda _2 = - \ii \sin + \cos
+\end{eqnarray*}
+Now we achieved the eigenvalues, so we can estimate the eigenvectors.
+The eigenvector $\lambda _1$
+\begin{eqnarray*}
+\left( \begin{array}{cc}
+\cos & \sin \\
+- \sin & \cos \\
+\end{array} 
+\right)
+-
+\left( \begin{array}{cc}
+\ii \sin + \cos & 0\\
+0 & \ii \sin + \cos 
+\end{array} 
+\right)
+=
+\left( \begin{array}{c}
+\ii \\
+1 
+\end{array}
+\right)
+\end{eqnarray*}
+Symmetrically the vector for $\lambda _2$ is:
+\begin{eqnarray*}
+\left( \begin{array}{c}
+-\ii \\
+1
+\end{array} \right)
+\end{eqnarray*}
+The matrix $P$ is just a concatenation of $\lambda _1$ and $\lambda _2$.
+\begin{equation}
+P = \left( \begin{array}{cc}
+\ii & -\ii \\
+1 & 1
+\end{array} \right)
+\end{equation}
+To calculate an diagonal matrix, we use the equation $B=P^{-1}AP$ to transform A into a diagonal matrix.
+\begin{eqnarray*}
+P^{-1} = \frac{1}{\text{det}(P)} \text{adj}(P) =\\
+\frac{1}{2\ii}
+\left( \begin{array}{cc}
+1 & \ii \\
+-1 & \ii
+\end{array}
+\right)
+= 
+\left( \begin{array}{cc}
+\frac{1}{2\ii} & \frac{1}{2} \\
+- \frac{1}{2\ii} & \frac{1}{2}
+\end{array}
+\
+\right)
+\\
+P^{-1}AP =
+\left( \begin{array}{cc}
+\frac{1}{2\ii} & \frac{1}{2} \\
+- \frac{1}{2\ii} & \frac{1}{2}
+\end{array}
+\right)
+\left( \begin{array}{cc}
+\cos & \sin \\
+-\sin & \cos
+\end{array}
+\right)
+\left( \begin{array}{cc}
+\ii & -\ii \\
+1 & 1
+\end{array}
+\right)
+=\\
+\left( \begin{array}{cc}
+\left( \frac{cos}{2\ii} - \frac{\sin}{2} \right)\ii + \frac{\sin}{2 \ii} + \frac{\cos}{2} &
+\left( \frac{cos}{2 \ii} - \frac{\sin}{2} \right)(-\ii) + \frac{\sin}{2 \ii}+\frac{\cos}{2} \\
+\left( - \frac{\cos}{2 \ii} - \frac{\sin}{2} \right)\ii + -\frac{\sin}{2 \ii} + \frac{\cos}{2} &
+\left( - \frac{\cos}{2 \ii} - \frac{\sin}{2} \right)(-\ii) - \frac{\sin}{2 \ii} + \frac{\cos}{2}
+\end{array}
+\right)
+=\\
+\left( \begin{array}{cc}
+\cos - \ii \sin & 0\\
+ 0 & \cos + \ii \sin 
+\end{array}
+\right)
+\end{eqnarray*}
+Now we can apply the power operation on the matrix.
+\begin{equation*}
+B^n = \left( \begin{array}{cc}
+(\cos - \ii \sin)^n & 0\\
+ 0 & (\cos + \ii \sin )^n
+\end{array}
+\right)
+\end{equation*}
+Now we can apply the matrix exponential onto $A$, since $A = PBP^{-1}$.
+\begin{eqnarray*}
+\left( \begin{array}{cc}
+\ii & - \ii \\
+1 & 1
+\end{array}
+\right)
+\left( \begin{array}{cc}
+(\cos - \sin \ii)^n & 0 \\
+0 & (\cos + (\ii \sin )^n
+\end{array}
+\right)
+\left( \begin{array}{cc}
+\frac{1}{2\ii} & \frac{1}{2} \\
+-\frac{1}{2 \ii} & \frac{1}{2}
+\end{array}
+\right)
+=\\
+\left( \begin{array}{cc}
+(\cos - \sin \ii)^n \ii & (\cos + \ii \sin)^n)(-\ii) \\
+(\cos - \sin \ii)^n & (\cos + \ii \sin)^n 
+\end{array}
+\right)
+\left( \begin{array}{cc}
+\frac{1}{2\ii} & \frac{1}{2} \\
+-\frac{1}{2 \ii} & \frac{1}{2}
+\end{array}
+\right)
+=\\
+\frac{1}{2}
+\left( \begin{array}{cc}
+\left( \cos - \sin \ii \right)^n + (\cos + \sin \ii )^n & (\cos - \sin)^n \ii - (\cos + \sin \ii)^n \ii \\ 
+\ii (\cos + \sin)^n  - \ii (\cos - \sin \ii )^n & \left( \cos - \sin \ii \right)^n + (\cos + \sin \ii )^n 
+\end{array}
+\right)
+=
+A^n
+\end{eqnarray*}
+
+\section{Exercise 2}
