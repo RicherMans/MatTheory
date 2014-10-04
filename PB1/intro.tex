@@ -158,6 +158,20 @@ Now we can apply the matrix exponential onto $A$, since $A = PB^{n}P^{-1}$.
 A^n
 \end{gather*}
 
+\improvement{Das geht noch einfacher.}
+
+\begin{gather}
+A^n = 
+\left( 
+	\begin{array}{cc}
+		\cos(n\cdot x) & \sin(n\cdot x)\\
+		-\sin(n\cdot x) & \cos(n\cdot x)
+	\end{array}
+\right)
+\end{gather}
+\improvement[inline]{Es ist eine Drehmatrix welche sich eifach um den \textbf{n} fachen Winkel weiter dreht. }
+
+
 \section{Exercise 2}
 Like in exercise 1 we begin by getting the eigenvalues and eigenvectors and the matrix $P$.
 \begin{gather*}
