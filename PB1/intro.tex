@@ -6,7 +6,8 @@
 I shorten the notation by using sin as a replacement for sin(x) and cos as a replacement for cos(x).
 We use the binet formula to get the power of $A^n$.
 We first estimate the eigenvectors, then concatenate them into matrix $P$ and use this matrix to compute the diagonal matrix $B$, which can be used to directly take the power for the matrix $A$. Afterwards we need to reverse the operations, which we had done on achieving $B$ to get $A^n$.
-\begin{eqnarray*}
+\begin{gather*}
+A^n =
 \left( \begin{array}{cc}
 \cos & \sin \\
 -\sin & \cos \\
@@ -26,10 +27,10 @@ We first estimate the eigenvectors, then concatenate them into matrix $P$ and us
 (\cos ^2 - \lambda) + \sin ^2 = 0 \\
 \lambda _1 = \ii \sin + \cos \\
 \lambda _2 = - \ii \sin + \cos
-\end{eqnarray*}
+\end{gather*}
 Now we achieved the eigenvalues, so we can estimate the eigenvectors.
 The eigenvector $\lambda _1$
-\begin{eqnarray*}
+\begin{gather*}
 \left( \begin{array}{cc}
 \cos & \sin \\
 - \sin & \cos \\
@@ -47,14 +48,14 @@ The eigenvector $\lambda _1$
 1 
 \end{array}
 \right)
-\end{eqnarray*}
+\end{gather*}
 Symmetrically the vector for $\lambda _2$ is:
-\begin{eqnarray*}
+\begin{gather*}
 \left( \begin{array}{c}
 -\ii \\
 1
 \end{array} \right)
-\end{eqnarray*}
+\end{gather*}
 The matrix $P$ is just a concatenation of $\lambda _1$ and $\lambda _2$.
 \begin{equation}
 P = \left( \begin{array}{cc}
@@ -63,9 +64,9 @@ P = \left( \begin{array}{cc}
 \end{array} \right)
 \end{equation}
 To calculate an diagonal matrix, we use the equation $B=P^{-1}AP$ to transform A into a diagonal matrix.
-\begin{eqnarray*}
-P^{-1} = \frac{1}{\text{det}(P)} \text{adj}(P) =\\
-\frac{1}{2\ii}
+\begin{gather*}
+P^{-1} = \dfrac{1}{\text{det}(P)} \text{adj}(P) =\\
+\dfrac{1}{2\ii}
 \left( \begin{array}{cc}
 1 & \ii \\
 -1 & \ii
@@ -73,16 +74,16 @@ P^{-1} = \frac{1}{\text{det}(P)} \text{adj}(P) =\\
 \right)
 = 
 \left( \begin{array}{cc}
-\frac{1}{2\ii} & \frac{1}{2} \\
-- \frac{1}{2\ii} & \frac{1}{2}
+\dfrac{1}{2\ii} & \dfrac{1}{2} \\
+- \dfrac{1}{2\ii} & \dfrac{1}{2}
 \end{array}
 \
 \right)
 \\
 P^{-1}AP =
 \left( \begin{array}{cc}
-\frac{1}{2\ii} & \frac{1}{2} \\
-- \frac{1}{2\ii} & \frac{1}{2}
+\dfrac{1}{2\ii} & \dfrac{1}{2} \\
+- \dfrac{1}{2\ii} & \dfrac{1}{2}
 \end{array}
 \right)
 \left( \begin{array}{cc}
@@ -97,10 +98,10 @@ P^{-1}AP =
 \right)
 =\\
 \left( \begin{array}{cc}
-\left( \frac{cos}{2\ii} - \frac{\sin}{2} \right)\ii + \frac{\sin}{2 \ii} + \frac{\cos}{2} &
-\left( \frac{cos}{2 \ii} - \frac{\sin}{2} \right)(-\ii) + \frac{\sin}{2 \ii}+\frac{\cos}{2} \\
-\left( - \frac{\cos}{2 \ii} - \frac{\sin}{2} \right)\ii + -\frac{\sin}{2 \ii} + \frac{\cos}{2} &
-\left( - \frac{\cos}{2 \ii} - \frac{\sin}{2} \right)(-\ii) - \frac{\sin}{2 \ii} + \frac{\cos}{2}
+\left( \dfrac{cos}{2\ii} - \dfrac{\sin}{2} \right)\ii + \dfrac{\sin}{2 \ii} + \dfrac{\cos}{2} &
+\left( \dfrac{cos}{2 \ii} - \dfrac{\sin}{2} \right)(-\ii) + \dfrac{\sin}{2 \ii}+\dfrac{\cos}{2} \\
+\left( - \dfrac{\cos}{2 \ii} - \dfrac{\sin}{2} \right)\ii + -\dfrac{\sin}{2 \ii} + \dfrac{\cos}{2} &
+\left( - \dfrac{\cos}{2 \ii} - \dfrac{\sin}{2} \right)(-\ii) - \dfrac{\sin}{2 \ii} + \dfrac{\cos}{2}
 \end{array}
 \right)
 =\\
@@ -109,7 +110,7 @@ P^{-1}AP =
  0 & \cos + \ii \sin 
 \end{array}
 \right)
-\end{eqnarray*}
+\end{gather*}
 Now we can apply the power operation on the matrix.
 \begin{equation*}
 B^n = \left( \begin{array}{cc}
@@ -118,8 +119,8 @@ B^n = \left( \begin{array}{cc}
 \end{array}
 \right)
 \end{equation*}
-Now we can apply the matrix exponential onto $A$, since $A = PBP^{-1}$.
-\begin{eqnarray*}
+Now we can apply the matrix exponential onto $A$, since $A = PB^{n}P^{-1}$.
+\begin{gather*}
 \left( \begin{array}{cc}
 \ii & - \ii \\
 1 & 1
@@ -131,8 +132,8 @@ Now we can apply the matrix exponential onto $A$, since $A = PBP^{-1}$.
 \end{array}
 \right)
 \left( \begin{array}{cc}
-\frac{1}{2\ii} & \frac{1}{2} \\
--\frac{1}{2 \ii} & \frac{1}{2}
+\dfrac{1}{2\ii} & \dfrac{1}{2} \\
+-\dfrac{1}{2 \ii} & \dfrac{1}{2}
 \end{array}
 \right)
 =\\
@@ -142,12 +143,12 @@ Now we can apply the matrix exponential onto $A$, since $A = PBP^{-1}$.
 \end{array}
 \right)
 \left( \begin{array}{cc}
-\frac{1}{2\ii} & \frac{1}{2} \\
--\frac{1}{2 \ii} & \frac{1}{2}
+\dfrac{1}{2\ii} & \dfrac{1}{2} \\
+-\dfrac{1}{2 \ii} & \dfrac{1}{2}
 \end{array}
 \right)
 =\\
-\frac{1}{2}
+\dfrac{1}{2}
 \left( \begin{array}{cc}
 \left( \cos - \sin \ii \right)^n + (\cos + \sin \ii )^n & (\cos - \sin)^n \ii - (\cos + \sin \ii)^n \ii \\ 
 \ii (\cos + \sin)^n  - \ii (\cos - \sin \ii )^n & \left( \cos - \sin \ii \right)^n + (\cos + \sin \ii )^n 
@@ -155,6 +156,127 @@ Now we can apply the matrix exponential onto $A$, since $A = PBP^{-1}$.
 \right)
 =
 A^n
-\end{eqnarray*}
+\end{gather*}
 
 \section{Exercise 2}
+Like in exercise 1 we begin by getting the eigenvalues and eigenvectors and the matrix $P$.
+\begin{gather*}
+A =\left( \begin{array}{cc}
+1 & 1 \\ -1 & 1
+\end{array} \right)
+\text{Eigenvalues of } A:
+\left( \begin{array}{cc}
+1 - \lambda & 1 \\ 
+-1 & 1 -\lambda 
+\end{array} \right)
+=
+(1-\lambda)^2 + 1 = 0\\
+\lambda _1 = 1 +\ii \\
+\lambda _2 = 1 -\ii \\
+\text{Eigenvector of }\lambda _1
+\left[
+\left( \begin{array}{cc}
+1 & 1 \\
+-1 & 1
+\end{array} \right) 
+-
+\left( \begin{array}{cc}
+1+\ii & 0\\
+0 & 1+\ii
+\end{array} \right)
+\right]
+\left( \begin{array}{c}
+x_1 \\ x_2
+\end{array} \right)
+= 0 \\
+v_1 =
+\left( \begin{array}{c}
+1 \ii
+\end{array} \right)
+\\
+v_2 =
+\left( \begin{array}{c}
+1 \\ -\ii
+\end{array} \right)
+\\
+P =
+\left( \begin{array}{cc}
+1 & 1\\
+\ii & -\ii
+\end{array} \right) 
+\Rightarrow P^{-1} = \dfrac{1}{\text{det}(P)}
+\left( \begin{array}{cc}
+-\ii & -1 \\
+-\ii & 1
+\end{array} \right) =  \dfrac{1}{-2 \ii}
+\left( \begin{array}{cc}
+-\ii & -1 \\
+-\ii & 1
+\end{array} \right) = 
+\left( \begin{array}{cc}
+\dfrac{1}{2} & \dfrac{1}{2\ii}\\
+\dfrac{1}{2} & -\dfrac{1}{2\ii}
+\end{array} \right)\\
+B=
+\left( \begin{array}{cc}
+\dfrac{1}{2} & \dfrac{1}{2\ii}\\
+\dfrac{1}{2} & -\dfrac{1}{2\ii}
+\end{array} \right)
+\left( \begin{array}{cc}
+1 & 1\\
+-1 & 1
+\end{array} \right)
+\left( \begin{array}{cc}
+1 & 1\\
+\ii & -\ii
+\end{array} \right)
+=
+\left( \begin{array}{cc}
+\dfrac{1}{2} & \dfrac{1}{2\ii}\\
+\dfrac{1}{2} & -\dfrac{1}{2\ii}
+\end{array} \right)
+\left( \begin{array}{cc}
+1+\ii & 1-\ii \\
+-1+\ii & -1-\ii
+\end{array} \right) 
+=
+\left( \begin{array}{cc}
+1+\ii & 0\\
+0 & 1-\ii
+\end{array} \right)
+\\
+B^n =
+\left( \begin{array}{cc}
+(1+\ii)^n & 0\\
+0 & (1-\ii)^n
+\end{array} \right)
+\\
+A^n=PB^{n}P^{-1} =
+\left( \begin{array}{cc}
+1 & 1 \\
+\ii & -\ii
+\end{array} \right)
+\left( \begin{array}{cc}
+(1+\ii)^n & 0\\
+0 & (1-\ii)^n
+\end{array} \right)
+\left( \begin{array}{cc}
+\dfrac{1}{2} & \dfrac{1}{2\ii}\\
+\dfrac{1}{2} & -\dfrac{1}{2\ii}
+\end{array} \right) 
+=
+\left( \begin{array}{cc}
+1 & 1 \\
+\ii & -\ii
+\end{array} \right)
+\left( \begin{array}{cc}
+\dfrac{(1+\ii)^n}{2} & \dfrac{(1+\ii)^n}{2\ii} \\
+\dfrac{(1-\ii)^n}{2} & -\dfrac{(1-\ii)^n}{2\ii}
+\end{array} \right)
+=\\
+\dfrac{1}{2}
+\left( \begin{array}{cc}
+(1+\ii)^n +(1-\ii)^n & (1+\ii)^n - (1-\ii)^n \\
+\ii (1+\ii)^n - \ii (1-\ii)^n & (1+\ii)^n + (1-\ii)^n
+\end{array} \right) = A^n
+\end{gather*}
