@@ -158,7 +158,7 @@ Now we can apply the matrix exponential onto $A$, since $A = PB^{n}P^{-1}$.
 A^n
 \end{gather*}
 
-\improvement{Das geht noch einfacher.}
+After some basic mathematics procedures we get the simplified matrix as shown below.
 
 \begin{gather}
 A^n = 
@@ -169,8 +169,6 @@ A^n =
 	\end{array}
 \right)
 \end{gather}
-\improvement[inline]{Es ist eine Drehmatrix welche sich eifach um den \textbf{n} fachen Winkel weiter dreht. }
-
 
 \paragraph*{2}
 Like in exercise 1 we begin by getting the eigenvalues and eigenvectors and the matrix $P$.
@@ -297,6 +295,74 @@ A^n=PB^{n}P^{-1} =
 \end{array} \right) = A^n
 \end{gather*}
 
+\paragraph*{3}
+To solve these we do not use the Methods as in Exercise 1 or 2 because the Eigenvector of these Matrix is:
+\begin{gather*}
+V_1=\left( \begin{array}{c}
+	1 \\
+	0 \\
+	0 \\
+	0 \\
+	0 \\
+\end{array} \right)
+\end{gather*}
+
+With these vector it is not possible to make the transformations as shown at the previous paragraphs.
+After calculating a few powers of the Matrix we got these series:
+\begin{gather*}
+\begin{array}{cc}
+A^2=
+	\left( \begin{array}{ccccc}
+		a^2 &  2*a&    1&    0&    0\\
+		0&  a^2&  2*a&    1&    0 \\
+		0&    0&  a^2&  2*a&    1\\
+		0&    0&    0&  a^2&  2*a \\
+		0&    0&    0&    0&  a^2
+	\end{array} \right)
+	&
+A^3=
+	\left( \begin{array}{ccccc}
+		a^3& 3*a^2&   3*a&     1&    0\\
+		0&   a^3& 3*a^2&   3*a&     1\\
+		0&     0&  a^3& 3*a^2&   3*a\\
+		0&     0&    0&   a^3& 3*a^2\\
+		0&     0&    0&     0&   a^3
+	\end{array} \right)
+	\\ \\
+A^4=
+	\left( \begin{array}{ccccc}
+		a^4& 4*a^3& 6*a^2&  4*a&    1\\
+		0&   a^4 & 4*a^3& 6*a^2&   4*a\\
+		0&     0&   a^4& 4*a^3& 6*a^2\\
+		0&     0&     0&   a^4& 4*a^3\\
+		0&     0&     0&     0&   a^4
+	\end{array} \right)
+	&
+A^5=
+	\left( \begin{array}{ccccc}
+		a^5& 5*a^4& 10*a^3& 10*a^2&    5*a\\
+		0&   a^5&  5*a^4& 10*a^3& 10*a^2\\
+		0&     0&    a^5&  5*a^4& 10*a^3\\
+		0&     0&      0&    a^5&  5*a^4\\
+		0&     0&      0&      0&    a^5
+	\end{array} \right)
+\end{array}
+\end{gather*}
+
+After looking for a longer time at these equations It is totally obvious the Matrix has to be:
+
+\begin{gather*}
+	\begin{medsize}
+	A^n=
+		 \begin{pmatrix}
+		a^n& a^{-1 + n}\cdot n& \dfrac{1}{2} a^{-2 + n}\cdot (-1 + n)\cdot n& \dfrac{1}{6} a^{-3 + n}\cdot (-2 + n)\cdot (-1 + n)\cdot n& \dfrac{1}{24} a^{-4 + n}\cdot (-3 + n)\cdot (-2 + n)\cdot (-1 + n)\cdot n\\
+		0& a^n& a^{-1 + n}\cdot n& \dfrac{1}{2} a^{-2 + n}\cdot (-1 + n)\cdot n& \dfrac{1}{6}\cdot a^{-3 + n}\cdot (-2 + n)\cdot (-1 + n)\cdot n\\
+		0& 0& a^n& a^{-1 + n}\cdot n&  \dfrac{1}{2} a^{-2 + n}\cdot (-1 + n)\cdot n\\
+		0& 0& 0& a^n& a^{-1 + n}\cdot n\\ 
+		0& 0& 0& 0& a^n
+		\end{pmatrix}
+	\end{medsize}
+\end{gather*}
 
 \section{Exercise 2}
 
