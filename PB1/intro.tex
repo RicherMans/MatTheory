@@ -478,3 +478,65 @@ By the use of \ref{rankeq} we get the following recursion:
 \rank(A A) = \min ( \rank (A), \rank(A) ) = \rank(A)
 \end{gather*}
 So after this recursion, it can be seen that $\rank (A^{n+1)}) = \rank (A^{n})$
+
+\section{Exercise 6}
+We use the Leibnitz formula to determinate the determinate.
+\begin{equation}
+\label{leib}
+\det\begin{pmatrix}A& B\\ C& D\end{pmatrix} = \det(D) \det(A - B D^{-1} C)
+\end{equation}
+From equation \ref{leib}, we can rewrite the matrix $X$ given as:
+\begin{gather*}
+\begin{pmatrix}
+0& x_1 & \hdots & x_n \\
+-x_1 & a_{11} & \hdots & a_{1n}\\
+\vdots & \vdots	& & \vdots\\
+-x_n & a_{n1} & \hdots & a_{nn} 
+\end{pmatrix}  \\
+\det(A) \det(0 - x A^{-1} (-x^T)) =\\
+\det(A) \det( x \frac{1}{\det(A)} \adj(A) x^T) =\\
+\det(x*\adj(A)*x^{T}) = | x*\adj(A)*x^{T} |
+\end{gather*}
+
+\section{Exercise 7}
+\paragraph*{a}
+The measure matrix as the inner product is given as: 
+\begin{gather*}
+\{ f(t) = a_0 + a_1 t + a_2 t^2 : a_0,a_1,a_2 \in R \}\\
+1 \rightarrow a_0 - a_1 = 1-t^2 \\
+t \rightarrow a_1 - a_2 = t-1 \\
+t^2 \rightarrow a_2 - a_0 = t^2 -t \\
+\end{gather*}
+To get the measure matrix we concatenate:
+\begin{gather*}
+1 \rightarrow \left( 1 , t , t^2 \right)
+\left(
+\begin{array}{c}
+1 \\ 0 \\ 1
+\end{array} \right) \\
+t \rightarrow \left( 1 , t , t^2 \right)
+\left(
+\begin{array}{c}
+-1 \\ 1 \\ 0
+\end{array} \right) \\
+t^2 \rightarrow
+\left( 1 , t , t^2 \right)
+\left(
+\begin{array}{c}
+0 \\ -1 \\ 1
+\end{array} \right)
+\end{gather*}
+The measure matrix:
+\begin{gather*}
+\left( 1 , t , t^2 \right)
+\left( \begin{array}{ccc}
+1 & -1 & 0\\
+0 & 1 & -1 \\
+1 & 0 & 1 \\
+\end{array} \right)
+\left( \begin{array}{c}
+a_0\\ a_1 \\ a_2
+\end{array} \right)
+\end{gather*}
+
+\paragraph*{b}

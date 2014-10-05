@@ -24,8 +24,9 @@
 \newlabel{adjA}{{4}{4}{Exercise 3}{equation.3.4}{}}
 \newlabel{detmul}{{5}{4}{Exercise 3}{equation.3.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Exercise 4}{4}{section.4}}
+<<<<<<< HEAD
+\@writefile{toc}{\contentsline {section}{\numberline {5}Exercise 5}{4}{section.5}}
+\newlabel{rankeq}{{7}{4}{Exercise 5}{equation.5.7}{}}
+=======
 \@writefile{toc}{\contentsline {section}{\numberline {5}Exercise 5}{5}{section.5}}
-\newlabel{rankeq}{{7}{5}{Exercise 5}{equation.5.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Exercise 6}{5}{section.6}}
-\newlabel{leib}{{8}{5}{Exercise 6}{equation.6.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Exercise 7}{5}{section.7}}
+>>>>>>> 93a57bddc28f3e5b33876a6a4cc6d8dbfda9d0a9
