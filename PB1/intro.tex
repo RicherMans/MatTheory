@@ -172,7 +172,7 @@ A^n =
 \improvement[inline]{Es ist eine Drehmatrix welche sich eifach um den \textbf{n} fachen Winkel weiter dreht. }
 
 
-\section{Exercise 2}
+\paragraph*{2}
 Like in exercise 1 we begin by getting the eigenvalues and eigenvectors and the matrix $P$.
 \begin{gather*}
 A =\left( \begin{array}{cc}
@@ -187,7 +187,7 @@ A =\left( \begin{array}{cc}
 (1-\lambda)^2 + 1 = 0\\
 \lambda _1 = 1 +\ii \\
 \lambda _2 = 1 -\ii \\
-\text{Eigenvector of }\lambda _1
+\text{Eigenvector of }\lambda _1, \lambda _2
 \left[
 \left( \begin{array}{cc}
 1 & 1 \\
@@ -212,7 +212,9 @@ v_2 =
 \left( \begin{array}{c}
 1 \\ -\ii
 \end{array} \right)
-\\
+\end{gather*}
+Since we computed the eigenvectors $v_1$ and $v_2$, we continue by calculating the diagonal matrix $B$.
+\begin{gather*}
 P =
 \left( \begin{array}{cc}
 1 & 1\\
@@ -294,3 +296,105 @@ A^n=PB^{n}P^{-1} =
 \ii (1+\ii)^n - \ii (1-\ii)^n & (1+\ii)^n + (1-\ii)^n
 \end{array} \right) = A^n
 \end{gather*}
+
+
+\section{Exercise 2}
+
+\paragraph*{1}
+Computing $A^{-1}B$.
+\begin{gather*} 
+A^{-1} = \frac{1}{\text{det}(A)}
+\left( \begin{array}{ccc}
+4 & 5 & 0 \\
+2 & 3 & 1 \\
+2 & 7 & -3 \\
+\end{array} \right)
+=
+- \frac{1}{24} 
+\left( \begin{array}{ccc}
+-16 & 15 & 5 \\
+8 & -12 & -4 \\
+8 & -18 & 2 \\
+\end{array} \right)
+\\
+AB = 
+\frac{1}{12} \left( \begin{array}{cccc}
+12 & 0 & -30 & 95 \\
+0 & 12 & 24 & -52 \\
+0 & 0 & 0 & -46 
+\end{array} \right)
+\end{gather*}
+\paragraph*{2}
+Computing $CA^{-1}$
+\begin{gather*}
+CA^{-1} =
+\left( \begin{array}{ccc}
+4 & 5 & 0 \\
+2 & 3 & 1\\
+2 & 7 & 9\\
+-2 & 3 & 7\\
+\end{array} \right)
+( -\frac{1}{24})
+\left( \begin{array}{ccc}
+-16 & 15 & 5 \\
+8 & -12 & -4 \\
+8 & -18 & 2 \\
+\end{array} \right)
+=
+\frac{1}{3}
+\left( \begin{array}{ccc}
+3 & 0 & 0\\
+0 & 3 & 0\\
+-12 & 27 & 0\\
+-14 & 24 & 1\\
+\end{array} \right)
+\end{gather*}
+
+\section{Exercise 3}
+We want to proof the following equation:
+\begin{equation}
+\label{ex3}
+\adj (AB) = \adj (B) \adj (A)
+\end{equation}
+It is already known that $A \adj (A) = \deter (A) I$, so
+\begin{equation}
+\label{adjA}
+\adj (A) = A^{-1} \deter (A) I
+\end{equation} 
+Also it is known that 
+\begin{equation}
+\label{detmul}
+\deter (AB) = \deter(A) \deter(B)
+\end{equation}
+We substitute \ref{adjA} into \ref{ex3}, by using \ref{detmul}.
+\begin{gather*}
+\adj (B) \adj (A) = \deter (B) B^{-1} I \deter (A) A^{-1} I = \\
+\deter (A) \deter (B) B^{-1} I A^{-1} I = \deter (AB) (AB)^{-1}
+\end{gather*}
+Using $C=AB$ we get:
+\begin{gather*}
+\deter(C) C^{-1} = \adj (C) \Rightarrow \adj (AB) = \adj (A) \adj (B)
+\end{gather*}
+
+\section{Exercise 4}
+Assuming having a matrix $A$ with dimensions of $n\times m$ with $r$ different row vectors spanning the vector space.
+Since the transpose of $A$ will transform rows into columns, we can say that the column rank of $A^T$ is also $r$.
+\begin{gather*}
+A = \left( \begin{array}{ccc}
+a_{11} & \hdots & a_{n1} \\
+\vdots & \ddots & \vdots \\
+a_{1m} & hdots & a_{nm}
+\end{array} \right)
+\end{gather*}
+If we modify $A$ to get $A^{'}$, by deleting one row of $A$, we can get the following inequality:
+\begin{equation*}
+\rank(A^{'}) \leq \rank(A)
+\end{equation*}
+If we use now the transpose of $A^{'}$, we can see that the column rank will hold the following inequality:
+\begin{equation*}
+\rank (A^{'}) \leq 
+\end{equation*} 
+
+
+\section{Exercise 5}
+To proof $\rank (A^n) = \rank (A^{n+1})$ 
