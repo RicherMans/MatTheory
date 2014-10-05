@@ -377,24 +377,38 @@ Using $C=AB$ we get:
 \end{gather*}
 
 \section{Exercise 4}
-Assuming having a matrix $A$ with dimensions of $n\times m$ with $r$ different row vectors spanning the vector space.
-Since the transpose of $A$ will transform rows into columns, we can say that the column rank of $A^T$ is also $r$.
+Assuming having a matrix $A$ with dimensions of $n\times m$.\\
+We assume that there exists two ranks, rowrank(A) and colrank(A).
 \begin{gather*}
 A = \left( \begin{array}{ccc}
 a_{11} & \hdots & a_{n1} \\
 \vdots & \ddots & \vdots \\
-a_{1m} & hdots & a_{nm}
+a_{1m} & \hdots & a_{nm}
 \end{array} \right)
 \end{gather*}
-If we modify $A$ to get $A^{'}$, by deleting one row of $A$, we can get the following inequality:
+If we modify $A$ to $A^{'}$ by doing Gaussian elimination, $A^{'}$ will have exactly $r$ non-zero rows, which will be denoted as $\text{rowrank}(A) = r$. 
+By doing the transpose $A^{{'}^T}$, we can still observe that the rowrank is $r$ times non-zero rows. Since the columns in the transpose are the rows of the non-transpose, it leads to:
 \begin{equation*}
-\rank(A^{'}) \leq \rank(A)
+\text{rowrank}(A^{'}) = \text{rowrank}(A^{{'}^T}) = \text{colrank}(A^{'}) = \text{colrank}(A^{{'}^T}) = \text{rowrank}(A) = \text{colrank} (A)
 \end{equation*}
-If we use now the transpose of $A^{'}$, we can see that the column rank will hold the following inequality:
-\begin{equation*}
-\rank (A^{'}) \leq 
-\end{equation*} 
 
+I show that this behaviour is working as well for the square $AA^T$ matrix. Since it is already proofed that the column rank is the row rank, we can use the basic formula for ranks :$\rank(AB) \leq \min(\rank (A), \rank(B))$.
+\begin{equation}
+\rank(A A^T) \leq \min( \rank (A) , \rank (A^T)) \Rightarrow \rank (A)=\rank (A^T)= \rank (A A^T)
+\end{equation}
 
 \section{Exercise 5}
-To proof $\rank (A^n) = \rank (A^{n+1})$ 
+To proof $\rank (A^n) = \rank (A^{n+1})$  we use recursion. 
+\begin{equation}
+\label{rankeq}
+\rank (AB) \leq \min (\rank (A), \rank (B))
+\end{equation}
+By the use of \ref{rankeq} we get the following recursion:
+\begin{gather*}
+\rank (A^{n+1}) = \\ 
+\rank (A^{n} A) \leq \min ( \rank (A^n), \rank(A) ) \\
+\rank (A^n) = \rank (A^{n-1} A) \leq \min ( \rank (A^{n-1}), \rank(A) ) \\
+\vdots \\
+\rank(A A) = \min ( \rank (A), \rank(A) ) = \rank(A)
+\end{gather*}
+So after this recursion, it can be seen that $\rank (A^{n+1)}) = \rank (A^{n})$
