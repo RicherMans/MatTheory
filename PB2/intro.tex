@@ -1,0 +1,160 @@
+\section{Page 34}
+\subsection{Exercise 2}
+Assume having a square matrix $A$, which we want to maximize. $\max  A$. We assume that $A$ is a symmetric matrix.
+If $A$ is non-zero, we can extract eigenvectors out of it: $ A x = \lambda x$.
+We get:
+\begin{gather*}
+A x = \lambda x \\
+x^T A x = x^T (A x) = x^T (\lambda x) = \lambda x^T x = \lambda \sum\limits_i^n | x_i | ^2
+\end{gather*}
+To maximize the equation given, we need to maximize $|\lambda|$, since the summation in the second term adds up to one.
+So one can see that by maximizing $\lambda$, we maximize $A$.
+
+
+\section{Page 37}
+\subsection{Exercise 5}
+A is called idempotent if $A^2 = A$. Show that each eigenvalue of an idempotent matrix is either 0 or 1.
+Using this property, we can show:
+\begin{gather*}
+\begin{array}{cc}
+\lambda x =& A x \\
+=&  A^2 x \\
+=& A(A x) \\
+=& A(\lambda x)\\
+=& \lambda (A x)\\
+=& \lambda (\lambda x)\\
+=& \lambda^2 x
+\end{array}
+\end{gather*}
+Since $\lambda^2 x$ equals to $A x$, we can compute the eigenvalues:
+\begin{gather*}
+A x - \lambda x = 0 \\
+\lambda^2 x - \lambda x = 0\\
+x( \lambda ^2 - \lambda ) =0 \\
+\rightarrow \lambda_1 = 1 \ \lambda_2 = 0
+\end{gather*}
+So we can see that the eigenvalues are either zero or one, as required.
+\subsection{Exercise 6}
+Here we use the same procedure as in Exercise 5.
+\begin{gather*}
+\lambda x = A^q x\\
+\lambda x = \underbrace{AA...AA}_{q} x \\
+\lambda x = \underbrace{AA...AA}_{q-1} (A x) \\
+\lambda x = \underbrace{AA...AA}_{q-1} (\lambda x)\\
+\lambda x = \lambda \underbrace{AA...AA}_{q-2} A x\\
+\vdots \\
+\lambda x = \lambda^{q} x 
+\end{gather*}
+
+Now since $A^q = 0$, we can solve the equation $A^q x = \lambda^q x$, for any $x \neq 0$.
+\begin{equation*}
+A^q x = \lambda^q x \rightarrow \lambda = 0
+\end{equation*}
+We have shown that all the eigenvalues in a positive nilpotent matrix are zero.
+
+An example for a nilpotent matrix is the following:
+\begin{equation*}
+\left( \begin{array}{ccccc}
+0 & 1 & & & \\
+& 0 & 1 & & \\
+& & \ddots &\ddots & \\
+&  & & 0 & 1 \\
+& & & & 0 
+\end{array}\right)
+\end{equation*}
+
+\section{Page 43}
+\subsection{Exercise 4}
+Given that $A \in M_n$ and $A_i = \text{adj} (A)$, we want to show that equation \ref{eq:chpol} holds.
+\begin{equation}
+\label{eq:chpol}
+\dfrac{d}{dt} p_A(t) = \sum\limits_i^n p_{A_{t}}(t)
+\end{equation}
+Assuming our characteristic polynomial $B =( tI - A )$ and $b_{ii} = (t-a_ii)$, we get the following equations:
+\begin{gather*}
+\begin{array}{cc}
+\det (B) =& \sum\limits_i^n (-1)^{i+i} b_{ii} A_i\\
+=& \sum\limits_i^n b_{ii} A_{i} \\
+\end{array}\\
+\text{taking derivative }\
+\dfrac{d}{dt} \det (B) = \dfrac{d}{dt} \sum\limits_i^n (t-a_{ii}) A_{i}\\
+\dfrac{d}{dt} \det (B) = \sum\limits_i^n A_{i} = \dfrac{d}{dt} p_{A}(t) \\
+p_{A_{i}}(t) = \sum\limits (-1)^{2i}  a_{ii} A^{'}_i = A_i
+\end{gather*}
+This shows that the determinant of $B$, which is the characteristic polynomial of $A$, is $ \sum\limits_i^n p_{A_{i}}(t)$.
+\subsection{Exercise 6}
+We want to proof that $\text{rank} (A - \lambda I ) = n-1$.
+The root of the characteristic polynomial is 0.
+We can see that $\dfrac{d}{dt} p_{A}(t)$ at $t = \lambda$ is non-zero, since it only evolves calculating the principal sub matrix of $A$. From there on we can follow:
+\begin{gather*}
+\dfrac{d}{dt} p_{A}(\lambda) = \sum\limits_i^n A_{i} \neq 0\\
+\rightarrow \sum\limits_{i=1}^n p_{A_{i}}(\lambda) \neq 0 \\
+\sum\limits_{i=1}^n p_{A_{i}}(\lambda) \neq 0 \\
+\exists A_i \neq 0 \rightarrow \text{rank}(A_i) = n-1
+\end{gather*}
+The submatrix rank follows from the column/row rank independence theorem. If one removes a row and a column from an n rank matrix, the submatrix needs to have n-1 rank, because the columns and rows are independent.
+
+From here on we can follow, that $\text{rank} (A- \lambda I) = n-1$, since $\dfrac{d}{dt} p_{A}(\lambda) \neq 0$.
+The converse is of course not true, as seen in example 1.2.7b. Consider the matrix:
+\begin{equation}
+\left( \begin{array}{ccccc}
+1&1 & & &  \\
+& 1&1 & & \\
+& & \ddots& \ddots & \\
+& &  & 1 & 1\\
+\end{array} \right)
+\end{equation}
+As it can be seen, its characteristic polynomial is $1$, yet it's rank is still $n$ and not $n-1$.
+\section{Page 54}
+\subsection{Exercise 5}
+If $A \in M_n$ and has distinct eigenvalues, show that if $AB = BA$, where $B \in M_n$, $B$ is a polynomial of degree at most $n-1$.
+%\begin{gather*}
+%A= begin{pmatrix}
+%  \lambda_1 I_{k_1} & 0 & \cdots & 0 \\
+%  0 & \lambda_2 I_{k_2} & \cdots & 0 \\
+%  \vdots  & \vdots  & \ddots & \vdots  \\
+%  0 & 0 & \cdots & \lambda_m I_{k_m}
+% \end{pmatrix}.
+% \ B=
+% \begin{pmatrix}
+%  B_{11} & B_{12} & \cdots & B_{1m} \\
+%  B_{21} & B_{22} & \cdots & B_{2m} \\
+%  \vdots  & \vdots  & \ddots & \vdots  \\
+%  B_{m1} & B_{m2} & \cdots & B_{mm}
+% \end{pmatrix},
+%\end{gather*}
+\subsection{Exercise 6}
+If $A$ is diagonalizable, which means that $A^{'} = P^{-1}AP$, so that $A'^{'}$ is diagonal. 
+Since $A^{'}$ is similar to $A$, both share similar eigenvalues. That said, the characteristic polynomial of $A^{'}$ will have at least one eigenvalue, except $A$ would be the zero matrix.
+We calculate:
+\begin{gather*}
+A^{'} = \left( \begin{array}{cccc}
+a_{11}& & &  \\
+& a_{22}& &  \\
+& & \ddots&  \\
+& & & a_{nn}
+\end{array} \right) \\
+p_{A}(A) = \det (A - A) =
+\left( \begin{array}{cccc}
+a_{11}- a_{11}& & &  \\
+& a_{22} - a_{22}& &  \\
+& & \ddots&  \\
+& & & a_{nn} - a_{nn}
+\end{array} \right) =
+0
+\end{gather*}
+We have shown that if a matrix $A$ is diagonalizable, the characteristic polynomial with respect to itself is $0$.
+\subsection{Exercise 7}
+We show that every diagonalizable matrix has a square root. We assume that a matrix $A$ can be decomposed into its diagonal form $D$ by using a matrix $Q \times Q =D$, which is again a square root.
+\begin{gather*}
+A A = B \\
+A = P^{-1} D P \\
+Q Q = D\\
+(P^{-1} Q P)(P^{-1} Q P) = P^{-1} Q (PP^{-1}) Q P = P^{-1} QQ P = P^{-1} D P = A
+\end{gather*}
+We have shown that every Matrix in $M_n$ which is diagonalizable has a square root.
+\subsection{Exercise 12}
+
+
+\section{Page 61}
+\subsection{Exercise 1}
