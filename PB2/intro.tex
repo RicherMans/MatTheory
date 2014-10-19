@@ -107,22 +107,75 @@ The converse is of course not true, as seen in example 1.2.7b. Consider the matr
 As it can be seen, its characteristic polynomial is $1$, yet it's rank is still $n$ and not $n-1$.
 \section{Page 54}
 \subsection{Exercise 5}
-If $A \in M_n$ and has distinct eigenvalues, show that if $AB = BA$, where $B \in M_n$, $B$ is a polynomial of degree at most $n-1$.
+If $A \in M_n$ and has distinct eigenvalues, show that if $AB = BA$, where $B \in M_n$, $B$ is a polynomial of degree at most $n-1$
+Since $A^0 v,A^1 v,\ldots,A^{n-1} v$ are linearly independent, they form a basis for $\mathcal{R}^n$. Thus:
+\begin{equation*}
+Bv=c_0 A^0 v+c_1 A^1 v+\ldots+c_{n-1} A^{n-1} v=p(A)v
+\end{equation*}
+where 
+\begin{equation*}
+p(x)=c_0+c_1 x +\ldots+c_{n-1}x^{n-1}
+\end{equation*}
+for $r = 0,1,\ldots ,n-1$.
+For some constants $c_0,c_1,\ldots,c_{n−1}$. Since B commutes with A, it commutes with all powers of A, so $B(A^r v)=A^r Bv=A^r p(A)v= p(A)(A^r v)$.
+
+But again the vectors $A^rv$ are a basis, so $B=p(A)$, which shows that the characteristic polynomial in $B$ has $n-1$ degrees. 
+%.
+%%Since all matrices that commute with A are diagonalized by a basis of eigenvectors for A, and conversely, any matrix diagonalized by a basis of eigenvectors for A commutes with A, the set of matrices commuting with A forms a vector subspace of Mn of dimension n. The matrices I,A,A2,…,An−1 lie in this subspace. You can show that these matrices are linearly independent using the facts that A has n distinct eigenvalues, and that a nonzero polynomial of degree at most n−1 over a field can have at most n−1 zeros.
 %\begin{gather*}
-%A= begin{pmatrix}
+%A = \begin{pmatrix}
 %  \lambda_1 I_{k_1} & 0 & \cdots & 0 \\
 %  0 & \lambda_2 I_{k_2} & \cdots & 0 \\
 %  \vdots  & \vdots  & \ddots & \vdots  \\
-%  0 & 0 & \cdots & \lambda_m I_{k_m}
-% \end{pmatrix}.
-% \ B=
+%  0 & 0 & \cdots & \lambda_m I_{k_n}
+% \end{pmatrix}
+% ,B=
 % \begin{pmatrix}
-%  B_{11} & B_{12} & \cdots & B_{1m} \\
-%  B_{21} & B_{22} & \cdots & B_{2m} \\
+%  B_{11} & B_{12} & \cdots & B_{1n} \\
+%  B_{21} & B_{22} & \cdots & B_{2n} \\
 %  \vdots  & \vdots  & \ddots & \vdots  \\
-%  B_{m1} & B_{m2} & \cdots & B_{mm}
+%  B_{n1} & B_{n2} & \cdots & B_{nn}
+% \end{pmatrix} \\
+%AB=
+% \begin{pmatrix}
+% \lambda_1 B_{11} & \lambda_1 B_{12} & \cdots & \lambda_1 B_{1n} \\
+%  \lambda_2 B_{21} & \lambda_2 B_{22} & \cdots & \lambda_2 B_{2n} \\
+%  \vdots  & \vdots  & \ddots & \vdots  \\
+%  \lambda_n B_{n1} & \lambda_n B_{n2} & \cdots & \lambda_n B_{nn}
 % \end{pmatrix},
-%\end{gather*}
+% BA=
+% \begin{pmatrix}
+% \lambda_1 B_{11} & \lambda_2 B_{12} & \cdots & \lambda_n B_{1n} \\
+%  \lambda_1 B_{21} & \lambda_2 B_{22} & \cdots & \lambda_n B_{2n} \\
+%  \vdots  & \vdots  & \ddots & \vdots  \\
+%  \lambda_1 B_{n1} & \lambda_2 B_{n2} & \cdots & \lambda_n B_{nn}
+% \end{pmatrix}
+% \end{gather*}
+% From the equation given in this example , we get: 
+% \begin{equation*}
+%\lambda_i B_{ij} = B_{ij} \lambda_j 
+% \end{equation*}
+% Since all $n$ eigenvalues of $A$ are distinct, we know that the resulting equation $(\lambda_i -\lambda_j) B_{ij} = 0$ will tell us that the non-diagonal elements are zero.
+% \begin{equation*}
+% AB_{ij} = \begin{cases}
+% 0 & \mbox{if } i \neq j \\
+% B_{ij} = B_{ii} & \mbox{else } 
+% \end{cases} 
+% \end{equation*}
+% From here on we conclude, that both $A$ and $B$ are diagonal. This means that the diagonalizable matrix $T$ will be diagonal as well, in the form of:
+% \begin{equation*}
+% \left( \begin{array}{cccc}
+% T_{1} & & & \\
+% & T_2 & & \\
+% & & \ddots & \\
+% & & & T_k \\
+% \end{array} \right)
+% \end{equation*}
+% We can now write out the resulting equation of $T^{-1}AT$ and $T^{-1}BT$ respectively.
+% \begin{gather*}
+% T^{-1}_p \lambda_p I T_p = \lambda_p I
+% \end{gather*}
+ 
 \subsection{Exercise 6}
 If $A$ is diagonalizable, which means that $A^{'} = P^{-1}AP$, so that $A'^{'}$ is diagonal. 
 Since $A^{'}$ is similar to $A$, both share similar eigenvalues. That said, the characteristic polynomial of $A^{'}$ will have at least one eigenvalue, except $A$ would be the zero matrix.
@@ -154,7 +207,115 @@ Q Q = D\\
 \end{gather*}
 We have shown that every Matrix in $M_n$ which is diagonalizable has a square root.
 \subsection{Exercise 12}
-
+Suppose having two matrices $\Lambda = \text{diag} (\lambda_1 , \lambda_2 , \ldots ,\lambda_n)$ and $B$. We want to show that these two only commute if $B$ is diagonal itself. 
+We assume that $B$ is an arbitrary matrix, while $\Lambda$ is a diagonal one.
+\begin{gather*}
+\Lambda = \begin{pmatrix}
+  \lambda_1 I_{k_1} & 0 & \cdots & 0 \\
+  0 & \lambda_2 I_{k_2} & \cdots & 0 \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  0 & 0 & \cdots & \lambda_m I_{k_n}
+ \end{pmatrix}
+ ,B=
+ \begin{pmatrix}
+  B_{11} & B_{12} & \cdots & B_{1n} \\
+  B_{21} & B_{22} & \cdots & B_{2n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  B_{n1} & B_{n2} & \cdots & B_{nn}
+ \end{pmatrix} \\
+\Lambda B=
+ \begin{pmatrix}
+ \lambda_1 B_{11} & \lambda_1 B_{12} & \cdots & \lambda_1 B_{1n} \\
+  \lambda_2 B_{21} & \lambda_2 B_{22} & \cdots & \lambda_2 B_{2n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  \lambda_n B_{n1} & \lambda_n B_{n2} & \cdots & \lambda_n B_{nn}
+ \end{pmatrix},
+ B \Lambda=
+ \begin{pmatrix}
+ \lambda_1 B_{11} & \lambda_2 B_{12} & \cdots & \lambda_n B_{1n} \\
+  \lambda_1 B_{21} & \lambda_2 B_{22} & \cdots & \lambda_n B_{2n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  \lambda_1 B_{n1} & \lambda_2 B_{n2} & \cdots & \lambda_n B_{nn}
+ \end{pmatrix}
+ \end{gather*}
+ From the equation given in this example , we get: 
+ \begin{equation*}
+\lambda_i B_{ij} = B_{ij} \lambda_j 
+ \end{equation*}
+ Since all $n$ eigenvalues of $A$ are distinct, we know that the resulting equation $(\lambda_i -\lambda_j) B_{ij} = 0$ will tell us that the non-diagonal elements are zero.
+ \begin{equation*}
+ \Lambda B_{ij} = \begin{cases}
+ 0 & \mbox{if } i \neq j \\
+ B_{ij} = B_{ii} & \mbox{else } 
+ \end{cases} 
+ \end{equation*}
+ From here on we conclude, that both $\Lambda$ and $B$ are diagonal. This means that the commutation can only be done if $B$ is diagonal with arbitrary entries within the diagonal.
 
 \section{Page 61}
 \subsection{Exercise 1}
+Show that $A \in M_n$ has rank 1 if and only if there exist two non-zero vectors $x,y \in \mathcal{C}^n$ such that $A = xy*$
+\paragraph{a}
+Let $A = \left[ \begin{array}{c}
+ a_1 \\ 
+ \vdots \\
+ a_n
+\end{array} \right]$, where $a_i$ represents a row in $A$.
+The rank can only be one, if 
+\begin{equation*}
+a_{i1} =  \alpha_{i-1} a_{11},a_{i2} = \alpha_{i-1} a_{11}, \ldots, a_{in} = \alpha_{i-1} a_{1n}
+\end{equation*}
+The vectors which would span $A$, can be defined as:
+\begin{gather*}
+x = \left( \begin{array}{c}
+1 \\
+\alpha_1 \\
+\vdots \\
+\alpha_{n-1} \\
+\end{array} \right)
+y* = \left( a_{11}, \ldots , a_{1n} \right)
+\end{gather*}
+From the definition of $x,y$ we can now use the relation $A = xy^*$ to show that these vectors are both nonzero. Otherwise $A$ would be the zero matrix, contradicting with $A$ having rank 1.
+
+The characteristic polynomial of $A$ can be written as the sum of all eigenvalues times the .
+\begin{equation*}
+p_{A}(t) = t^n - (\sum\limits_{i=1}^n \lambda_i) t^{n-1} + \ldots + \det(A)
+\end{equation*}
+Since $\det (A) = 0 $(rank 1) then $t = 0$ is a root of $p_A$. This means that 0 is an eigenvalue of $A$. 
+Suppose that $A$ has at least two non-zero distinct eigenvalues, which are defined as:
+\begin{gather*}
+A x_1 = \lambda_1 x_1,x_1 \neq 0
+A x_2 = \lambda_2 x_2,x_2 \neq 0
+\end{gather*}
+Assuming $x_1$ and $x_2$ are linearly independent vectors and $A = xy^*$, we get the following relations:
+\begin{gather*}
+xy^* x_1 = \lambda_1 x_1 \\
+x = \dfrac{\lambda_1}{y^* x_1} x_1 \\
+xy^* x_2 = \lambda_2 x_2 \\
+x = \dfrac{\lambda_2}{y^* x_2} x_2 \\
+\end{gather*}
+The quantities $y^* x_1 , y^* x_2$ are scalars so this contradicts the assumption that $x_1,x_2$ are linearly independent. If this eigenvalue $x$ exists, it has algebraic multiplicity 1. It is known that if an eigenvalue has multiplicity $k \geq 1$ then the rank of the matrix $A-\lambda I$ is $n-k$. The first already known eigenvalue (0) has at least multiplicity of $n-1$ (since we have rank 1), therefore we would have at least $n-(n-1) = 1$ eigenvalues. 
+
+\paragraph{b}
+\label{par:b}
+Here we proof that the eigenvalue can be rewritten as $y^* x$.
+\begin{gather*}
+A v = \lambda v \\
+xy^* v = \lambda v \\
+y^* xy^* v = y^* \lambda v \\
+y^* x y^* v = \lambda y^* v \\
+(y^* x - \lambda ) y^* v = 0 \\
+\rightarrow y^* x = \lambda
+\end{gather*}
+As required.
+\paragraph{c}
+The left eigenvector, using \ref{par:b}:
+\begin{equation}
+y^* A = (y^*x) y^*
+\end{equation}
+
+The right eigenvector is:
+\begin{equation}
+Ax = (xy^*) x
+\end{equation}
+
+The geometric multiplicity of the eigenvalue 0 is at least $n-1$.
