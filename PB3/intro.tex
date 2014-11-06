@@ -1,0 +1,385 @@
+Since this Problemset was heavily time consuming, I decided to split the work with my class mate Alexander Schmitt.
+\section{Page 71}
+\subsection{Exercise 2}
+Assume having an inner product of two eigenvectors $v$:
+\begin{gather*}
+\langle v,v \rangle = \langle Uv,Uv \rangle = \langle \lambda v,\lambda v \rangle = \lambda \bar{\lambda} \langle v,v \rangle\\
+\left( 1- \lambda\bar{\lambda} \langle v,v \rangle \right) = 0 \text{ since } \langle v,v \rangle \neq 0 \Rightarrow \lambda\bar{\lambda} =1 \Rightarrow |\lambda|^2 =1 \Rightarrow \lambda = 1
+\end{gather*}
+Which shows that the eigenvalues of a given unitary matrix are 1.
+\subsection{Exercise 7}
+We need to show that $x^*x = y^*y, Ux = y \Rightarrow U $ is unitary.
+\begin{gather*}
+0 = 0 \\
+0 = x 0 \\
+0 x^*= x 0 x^*\\
+0 x^*= x (I-I) x^*\\
+0 x^*= x (U^{-1}U -I) x^*\\
+\end{gather*}
+We can now observe that $H = U^{-1}U -I$, $H^* = H$.
+\begin{gather*}
+H = U^{-1}U -I = I - I \\
+H^* = I - I = U^{-1}U - I = U^{*}U - I
+\end{gather*}
+We consider :
+\begin{gather*}
+e^{i \theta} y = q\\
+\left( x+q \right)^* H \left(x + q\right) \\
+\left( x^*+q^* \right)H \left( x+q \right) \\
+= \overbrace{x^*Hx}^{\text{ Constant }} + x^*Hq + q^*Hx + \overbrace{q^*Hq}^{\text{ Constant }} = 0\\
+= x^*Hq + q^*Hx = 0\\
+= x^*H e^{i \theta} y + \left(e^{i \theta} y\right)^* H x\\
+x^*H e^{i \theta} y + \left(e^{i \theta} y\right)^* H x =
+\begin{cases}
+\theta = 0 ~ x^*Hy + (x^*Hy)^* = x^*Hy = 0 \text{ since it is real }  \\
+\theta = \frac{\pi}{2}  ~ x^*H i y + (x^*H i y )^* =  2i \left( x^*Hy \right)\\
+\theta = \theta ~ e^{i \theta} \left ( x^* H y \right) 
+\end{cases}
+\end{gather*}
+We can see that this identity will be zero for every $x,y \in C^n$ and all $\theta \in R$.
+We can choose for the vectors $x,y$ at first $x = y \neq 0$, so we get:
+\begin{gather*}
+x^*Hx = 0 \Rightarrow H = 0
+\end{gather*}
+Moreover the case where $x,y$ are not equal needs to be shown too $ x \neq y \neq 0$
+From the formula we assume having two different statements, using the hermitian property of $H$
+\begin{gather}
+\label{xhy}
+x^*Hy = 0 \\
+x^*H^* y =0
+\end{gather}
+If we combine the equations in \ref{xhy}, we get:
+\begin{gather*}
+x^*Hy = x^*H^* y \\
+x^*Hy - x^*H^* y = 0\\
+x^* \left( Hy - H^*y \right) = 0\\
+x^* \left( Hy - Hy \right) = 0\\
+x^* \left( H \left( y- y \right) \right) = 0 \Rightarrow H = 0
+\end{gather*}
+We can therefore conclude that $H$ must be zero, independent of $x,y$.
+\section{Page 77}
+\subsection{Exercise 4}
+We need to show that a householder transformation does preserve the vector length $r$, but can transform any vector $x \in R^n$ to $y \in R^n$, so that $x \neq y$.
+\begin{gather*}
+r = ||x|| \\
+w = x-y \\
+y = U_w x \\
+y = \left( I - 2 \left( x-y \right) \left( x-y \right) \right) x \\
+y =\left( I - 2 \left|\left| x-y \right|\right|_2^2 \right) x
+\end{gather*}
+From here on we can observe, that this equation is an equality if $I - 2 \left|\left| x-y \right|\right|_2^2 = 1$.
+This means that $2 \left|\left| x-y \right|\right|_2^2 = 0$.
+We can follow that this equation is only zero if and only if $x = y$.
+So we can conclude that the householder transformation does map a vector $x$ with length $r$ to a vector $y$ with the same length.
+We need to show that the length still will be preserved:
+\begin{gather*}
+\left|\left| Ux \right| \right|^2 = \left| x \right|^2\\
+\left|\left| Ux \right| \right|^2 = (Ux)^* (Ux) = x^*U^*Ux = x^*x = \left|\left| x \right| \right|^2\\
+\end{gather*}
+Which means that the transformation of $U$ does preserve the length, which means that $Ux =y$ will preserve $r$, so that $|x| = |y| = r$.
+\subsection{Exercise 8}
+If $A$ and $B$ are unitary equivalent then :
+\begin{gather*}
+\exists U : U^* = U^{-1}, U^*AU = B
+\end{gather*}
+We need only to focus on these properties. Indeed it is easy to find two matrices that satisfy $ \sum\limits_{i,j=1}^n |b_{ij}|^2 = \sum\limits_{i,j=1}^n |a_{ij}|^2$.
+\begin{gather*}
+A = \left( \begin{array}{cc}
+1 & 1 \\
+1 & 1 \\
+\end{array} \right) ,
+B = \left( \begin{array}{cc}
+0 & -2 \\
+0 & 0
+\end{array} \right) 
+\end{gather*}
+We can see that $(U^*AU)^* = U^*AU$, but $B^* \neq B $, so we can see that these two matrices are holding the theorem $ \sum\limits_{i,j=1}^n |b_{ij}|^2 = \sum\limits_{i,j=1}^n |a_{ij}|^2$, but fail to be unitary equivalent.
+
+\section{Page 84}
+\subsection{Exercise 7}
+In this exercise we need to show that not every square matrix in the complex plane can be decomposed into an upper triagonal form.
+In this exercise we need only to show that there exists one eigenvector $x$ so that $x^Tx \neq 0$.
+Assuming we can decompose the matrix into a triangular form of :$ Q^T T Q$
+\begin{gather*}
+T = \left( \begin{array}{cccc}
+\lambda_1 & x & x & x\\
+& \lambda_2 & x & x\\
+& & \ddots & x\\
+& & & \lambda_n\\
+\end{array} \right)
+\end{gather*}
+We pick a $y$, which is :
+\begin{gather*}
+y = \left( \begin{array}{c}
+1 \\ 
+0 \\
+\vdots \\
+0
+\end{array} \right)
+\end{gather*}
+We get:
+\begin{gather*}
+Ax = \lambda x\\
+Q^T T Q x = \lambda x\\
+T Q x = \lambda Q x\\
+T y = \lambda y\\
+Qx = y
+y^T y = (Qx)^T Qx = x^T x \neq 0
+\end{gather*}
+As we have shown, there exists one nonzero vector $y$, so that $x^T x \neq 0$
+\subsection{Exercise 8}
+We need to show that given a complex orthogonal matrix $Q$, having an eigenvector $x$, with corresponding eigenvalues $\lambda \neq \pm 1$, then we can follow that $x^Tx = 0$.
+\begin{gather*}
+Qx = \lambda x \\
+\left( Q x \right)^T Qx = \left( Qx \right)^T x =\\
+x^TQ^T Q x = \left( Q x \right)^T \lambda x =\\
+x^T x = \lambda ^2 x^T x = \\
+x^T x \left( \lambda^2 -1 \right) =\\
+0 = x^T x \left( \lambda^2 -1 \right)
+\end{gather*}
+As we can see since $\lambda \neq \pm 1$, we can conclude that $x^T x=0$.
+
+\section{Page 95}
+\subsection{Exercise 1}
+\paragraph{a}
+We can see that if two matrices commute they can be simultaneously diagonalized.
+So we try to diagonalize $C = T^{-1}AB T$, by applying the diagonalization with one known matrix $T$.
+\begin{gather*}
+C = AB =BA\\
+C = T^{-1} A T T^{-1} B T =\\
+C = T^{-1} A B T = \\
+\end{gather*}
+As we can see we can diagonalize $AB$ by using $C$, so if we successfully diagonalize both matrices, we can read out the eigenvalues at the diagonal. Moreover, since $\det(AB) = \det(A) \det(B)$, which means that our eigenvalues can be simply multiplied. The only difference in the notation of this exercise is the permutation. 
+Assume having a geometric multiplicity $ G(\lambda) > 1$, so that we have multiple blocks within the matrix $C$.
+Then we can write out the multiplication of the eigenvalues, if both $A$ and $B$ are diagonalized:
+\begin{gather*}
+C =
+\left( \begin{array}{ccc}
+\alpha_1 & 0 & 0 \\
+0 & \ddots & 0\\
+0 & 0 & \alpha_n 
+\end{array} \right)
+\left( \begin{array}{ccc}
+\beta_{i_1} & 0 & 0\\
+0 & \ddots & 0\\
+0 & 0 & \beta_{i_n}
+\end{array} \right)
+\end{gather*}
+Since we have at least a block diagonal matrix, we can permute the indices of $  T^{-1} B T $, since the geometric multiplicity only describes how many blocks we have and what size, but not how they are organized. 
+Having said that, we could also say that $ T^{-1} A T $, has permuted blocks, which it surely can have, but in this exercise it is not required.
+\paragraph{b}
+A polynomial in two variables can be written in its bilinear as:
+\begin{gather*}
+p(A,B) = \left( \begin{array}{ccc}
+1 & A & A^2 \\
+B & BA & BA^2\\
+B^2 & B^2 A & B^2 A^2
+\end{array} \right)
+\end{gather*}
+From this point on, if we want to calculate the eigenvalues, we need to calculate the eigenvalues of each sub block in matrices $A,B$ respectively.
+Since we assume having already the eigenvalues of $A,B$, we can rewrite the eigenvectors in diagonal form for $A,B$:
+\begin{gather*}
+P^{-1}AP = \left( \begin{array}{ccc}
+\alpha_1 & 0 & 0\\
+0 & \ddots & 0 \\
+0 & 0 & \alpha_n
+\end{array} \right)
+P^{-1}BP =\left( \begin{array}{ccc}
+\beta_{i_1} & 0 & 0\\
+0 & \ddots & 0 \\
+0 & 0 & \beta_{i_n}
+\end{array} \right)
+\end{gather*}
+So when calculating $A^2,B^2$, we can simply square the eigenvalue respectively, giving us the following form:
+\begin{gather*}
+p(A,B) =  \left( \begin{array}{ccc}
+1 & p_A(\alpha) & p_A(\alpha^2)\\
+p_B(\beta) & p_{BA}(\alpha \beta) & p_{BA}(\alpha^2 \beta)\\
+p_B(\beta^2) & p_{BA}(\alpha \beta^2) & p_{BA}(\alpha^2 \beta^2)
+\end{array} \right)
+\end{gather*}
+We can therefore write out the characteristic polynominals:
+\begin{gather*}
+p(A,B) =  \left( \begin{array}{ccc}
+1 & \left( \begin{array}{c} \alpha_1 \\ \vdots \\ \alpha_n \end{array} \right) & \left( \begin{array}{c} \alpha_1^2 \\ \vdots \\ \alpha_n^2 \end{array} \right) \\
+\left( \begin{array}{c} \beta_{i_1} \\ \vdots \\ \beta_{i_n} \end{array} \right) & \left( \begin{array}{c} \alpha_1 \beta_{i_1} \\ \vdots \\ \alpha_n \beta_{i_n} \end{array} \right) & \left( \begin{array}{c} \alpha_1^2 \beta_{i_1} \\ \vdots \\ \alpha_n^2 \beta_{i_n} \end{array} \right)  \\
+\left( \begin{array}{c} \beta_{i_1}^2 \\ \vdots \\ \beta_{i_n}^2 \end{array} \right)&
+\left( \begin{array}{c} \alpha_1 \beta_{i_1}^2 \\ \vdots \\ \alpha_n \beta_{i_n}^2 \end{array} \right) & \left( \begin{array}{c} \alpha_1^2 \beta_{i_1}^2 \\ \vdots \\ \alpha_n^2 \beta_{i_n}^2 \end{array} \right)
+\end{array} \right) =
+p(\alpha_1,\beta_{i_1}) , \ldots , p(\alpha_n,\beta_{i_n} )
+\end{gather*}
+As we can see, using the property that both $B$ and $A$ are diagonalizable, we can show that $p(A,B) = p(\alpha_1,\beta_{i_1}) , \ldots , p(\alpha_n,\beta_{i_n} $. 
+\paragraph{c}
+As already seen in the first two paragraphs, the assumption of being commutative is not necessary to make these theorems hold. For example:
+\begin{gather*}
+P^{-1}A P P^{-1} B P\\
+= \left( \begin{array}{ccc}
+\alpha_1 & 0 & 0 \\
+0 & \ddots & 0\\
+0 & 0 & \alpha_n 
+\end{array} \right)
+\left( \begin{array}{ccc}
+\beta_{i_1} & 0 & 0\\
+0 & \ddots & 0 \\
+0 & 0 & \beta_{i_n}
+\end{array} \right) 
+\end{gather*}
+Which will conclude even if $BA \neq AB$, since the multiplication between the two matrices is commutative ( $\alpha_1 \beta_{i_1} = \beta_{i_1} \alpha_1$.
+\subsection{Exercise 2}
+If we assume having a matrix $T$ which is similar to $A$, we can write out $T$ as:
+\begin{gather*}
+T = \left( \begin{array}{cccc}
+t_{11} & x & x &x\\
+&t_{22}  & x &x\\
+&  & \ddots &x\\
+&  &  &t_{nn}\\
+\end{array}\right) 
+\end{gather*}
+We can directly see that the rank of $T$ is equal to its nonzero diagonal components, which means that $r(T) = r(A)$.
+Since $A \sim T$, the eigenvalues of $A$ are equally these of $T$, so $\sigma(A) = \sigma(T)$. We can see that these eigenvalues are stored in $T$, where the diagonal elements are so :
+\begin{gather*}
+T = \left( \begin{array}{cccc}
+\lambda_{11} & x & x &x\\
+& \lambda_{22}  & x &x\\
+&  & \ddots &x\\
+&  &  & \lambda_{nn}\\
+\end{array} \right)
+\end{gather*}
+So we can see that the rank is not less than the number of nonzero eigenvalues, since in this case, the rank and the eigenvalues are both stored in the diagonal. Having a zero in the diagonal, will result in having an eigenvalue of zero and a rank reduction.
+\subsection{Exercise 5}
+In this exercise we can assume that $A$ is full rank, since it has $n$ distinct eigenvalues and dimensionality of $n \times n$. First we show that the trace is equal to the sum of eigenvalues:
+\begin{gather*}
+A = Q^* T Q\\
+Q^* A Q = T \\
+tr(Q^* A Q) = tr (T) \\
+tr(Q^* A Q) = \sum\limits_i^n \lambda_i \Rightarrow tr(A) = \sum\limits_i^n \lambda_i
+\end{gather*}
+Now when we apply matrix power for the equation, we can see that since the matrix $T$ is upper triagonal, the power operation affects the diagonal, we get the following results:
+\begin{gather*}
+A^k = \left( Q^* T Q \right)^k\\
+tr(A^k) = tr\left( \left( Q^* T Q \right)^k \right) \\
+= tr \left( Q^* T^k Q \right) \\
+= tr \left( T^k Q^* Q \right) \\
+= tr \left( T^k  \right)\\
+= \sum\limits_i^n \lambda_i^k
+\end{gather*}
+
+
+\subsection{Exercise 6}
+The LU decomposition of the resulting matrix $aA + bB = C$ are:
+\begin{gather*}
+C = \left( \begin{array}{ccc}
+a-2b & b & 2b\\
+-b & 2a-2b &-b \\
+b & b & 3a+b
+\end{array} \right) 
+\end{gather*}
+So we calculated the eigenvalues (since it is very messy calculation from here on, we dropped this step to show that the calculation is working out ) by using $ det( C - \lambda I ) = 0$ and get:
+\begin{gather*}
+\sigma(C) = \left\lbrace a-2b, 2a-2b , 3a+b \right\rbrace \\
+\end{gather*}
+The eigenvalues of $\sigma(AB)$ are the following:
+\begin{gather*}
+\lambda_1 = -3\\
+\lambda_2 = -2\sqrt{2}\\
+\lambda_3 = 2 \sqrt{2}
+\end{gather*}
+
+\subsection{Exercise 9}
+%No idea
+In this exercise we need to use induction to proof the following for the case $k=1$:
+\begin{gather*}
+AX = XB \\
+A(AX) = A(XB) \\
+A(AX) = (AX)B \\
+A^2X = XBB\\
+A^2X = XB^2
+\end{gather*}
+Moreover we can see in the case of $k=n$:
+\begin{gather*}
+AX = XB\\
+A^{n-1}(AX) = A^{n-1}(XB)\\
+A^nX = A^{n-2}(AX)B \\
+A^nX = A^{n-2}XB^2\\
+\vdots \\
+A^nX = XB^{n}
+\end{gather*}
+And lastly we show for the case of $k=n+1$.
+\begin{gather*}
+A^n (AX) = A^{n}(XB)\\
+A^{n+1}X = A^{n-1}A(XB)\\
+\vdots \\
+A^{n+1}X = XB^{n+1}
+\end{gather*}
+Next up we need to proof that the characteristic polynomials are equal:
+\begin{gather*}
+p(A)X = \sum_{k=0}^n a_k A^k X =\\
+\sum_{k=0}^n a_k B^k X = X \sum_{k=0}^n a_k B^k = X p(B)
+\end{gather*}
+We use Caylay-Hamilton to see that, $p_A(A) = 0$, so that we can conclude $p_A(A) X = 0$, which is equal to our previous calculations:
+\begin{gather*}
+p_A(A)X =  0 = X p_A(B)\\
+p_A(B) = (B - \lambda_1 I ) \ldots (B - \lambda_n I) 
+\end{gather*}
+Since $p_A(B)$, will be zero if and only if the eigenvalues of $A$ and $B$ intersect, which won't happen since our assumption tells us that $\sigma(A) \cap \sigma(B) = 0$.
+We have shown the required proof.
+\section{Page 109}
+\subsection{Exercise 8}
+We need to prove that the matrices $H(A) $and $S(A)$ commute if the matrix $A$ is normal.
+\begin{gather*}
+AA^* = \left(  H(A) + S(A) \right) \left( \left( H(A) + S(A)  \right) \right)^* \\
+=  H(A) + \left( S(A) H(A)^* \right) + S(A)^*  \\
+=  H(A) + \left( H(A)^* S(A) \right) + S(A)^* \\
+= \left( H(A)^* + H(A) \right) \left( S(A) S(A)^* \right)\\
+= H(A)^* +  ( S(A) H(A) ) + S(A)^* \\
+= (H(A)^* + S(A)) ( S(A)^* + H(A))\\
+= H(A)^* + (S(A)^* S(A)) + H(A) \\
+= (H(A)+S(A))^* + (H(A) + S(A))\\
+= A^*A
+\end{gather*}
+We have shown that $A$ is normal if $S(A) $ and $H(A)$ commute.
+\subsection{Exercise 10}
+We need to show that $ A $ symmetric $<=>$ A is normal.
+To show that if $A$ is symmetric it is normal we can point out:  
+\begin{gather*}
+A = A^T = \\
+A A = A A^T \\
+A^T A = A A^T\\
+\end{gather*}
+To show the other side, we use the property that $H(A)$ is hermitian.
+\begin{gather*}
+H(A) x = \lambda_1 x\\
+S(A) x = \lambda_2 x
+\end{gather*}
+We can decompose $H(A)$ into being diagonal, since it is hermitian:
+\begin{gather*}
+\left( \alpha_1, \ldots , \alpha_2  \right) \text{ Is the eigenvector for } H(A) \\
+H(A) \alpha_i = \hat{\lambda}_i \alpha_i \\
+S(A) \alpha_i = \hat{\lambda}_i \alpha_i
+\end{gather*}
+The hat operator denotes that the eigenvalue can also occur multiple times.
+We get the decomposition:
+\begin{gather*}
+U = \left( \alpha_1, \ldots , \alpha_2  \right)\\
+U^* A U = U^* H U + U^* S U = \Phi 
+\end{gather*}
+Which only shows that $\Phi$ is diagonal.
+\begin{gather*}
+A = U^* \Phi U \\
+A^* = U^* \Phi U \Rightarrow A^* A = A A^* 
+\end{gather*}
+\subsection{Exercise 14}
+\begin{gather*}
+A^* A = A A^*\\
+A = U ^* \Lambda U\\
+A^* =  U ^* \Lambda U \\
+A^* = A \Rightarrow A = A^T
+\end{gather*}
+\subsection{Exercise 31}
+Here we simply assume having the two similar matrices $A,B$ as:
+\begin{gather*}
+A = U^* \Phi U^* \\
+B = V^* \Omega V \\
+A \sim B \Leftrightarrow \Phi \sim \Omega
+\end{gather*}
+As both are diagonally similar matrices, we can easily pick a permutation matrix $P$, so that $\Phi = \Omega$.
