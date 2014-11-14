@@ -1,0 +1,347 @@
+\section{Exercise 1}
+\paragraph{a}
+The Jordan Normal Form of the matrix $A$ is given by:
+\begin{gather*}
+A = \left( \begin{array}{ccc}
+2 & 6 & -15 \\
+1 & 1 & -5 \\
+1 & 2 & -6 
+\end{array} \right) = 
+-\lambda^3 -3 \lambda^2 - 3\lambda -1  = -(\lambda+1)^3\\
+\lambda_1 = \lambda_2 = \lambda_3 = -1\\
+p_A(\lambda) = -(\lambda+1)^3 \\
+v_1 = \left( \begin{array}{c}
+5\\
+0\\
+1
+\end{array} \right),
+v_2 = \left( \begin{array}{c}
+-2\\
+1\\
+0
+\end{array} \right)\\
+q_A(\lambda) = -\left( (\lambda+1)^2\right)\\
+J = \left( \begin{array}{ccc} 
+-1& &\\
+& -1 &1\\
+& & -1
+\end{array} \right)
+\end{gather*}
+\paragraph{b}
+The Jordan Normal Form of the matrix $A$ is given by:
+\begin{gather*}
+A = \left( \begin{array}{ccc}
+0 & -4 & 0 \\
+1 & -4 & 0 \\
+1 & -2 & -2 
+\end{array} \right) = 
+-\lambda^3 -3 -6 \lambda^2 - 12\lambda - 9  = -(\lambda+2)^3\\
+\lambda_1 = \lambda_2 = \lambda_3 = -2\\
+p_A(\lambda) = -(\lambda+2)^3 \\
+v_1 = \left( \begin{array}{c}
+0\\
+0\\
+1
+\end{array} \right),
+v_2 = \left( \begin{array}{c}
+2\\
+1\\
+0
+\end{array} \right)\\
+q_A(\lambda) = \left( \lambda+2\right)^2\\
+J = \left( \begin{array}{ccc} 
+-2&1 &\\
+& -2 &\\
+& & -2
+\end{array} \right)
+\end{gather*}
+As we could see in both exercises, the eigenvalues only generate two eigenvectors, so the matrices are not diagonalizable.
+
+\section{Exercise 2}
+\begin{gather*}
+p_A(\lambda) = \lambda^4 - 4\lambda^3 + 6 \lambda^2 - 4 \lambda +1 = (\lambda-1)^4\\
+\lambda_1 = \lambda_2 = \lambda_3 = \lambda_4 =0 \\ 
+dim(A) = 4, rank(A-I) = 2 \\
+J \Rightarrow (2 \times 2) ( 2 \times 2)\\
+J = \left( \begin{array}{cccc}
+1 & 1 & & \\
+& 1 &&\\
+& & 1 & 1 \\
+& & &1
+\end{array} \right)\\
+SJ = \left[ \alpha_1 , \alpha_1+\alpha_2 ,\alpha_3,\alpha_3 + \alpha_4 \right]
+\end{gather*}
+Now we reduce the matrix $A$ into row echelon form, which results in the following diagonal form:
+\begin{gather*}
+\left[ A,b\right] = \left( \begin{array}{ccccc}
+1 & & & & -2b_2 -2b_3 -b_4 \\
+ & 1 & & & b_1 + 3b_2 + 3b_3 + 2b_4 \\
+ & & 1 & & -b_1 -2b_2 - 3b_3 - 3b_4\\
+ & & & 1 & b_1 + 2b_2 +4b_3 +4b_4
+\end{array} \right)\\
+v_1 = \left( \begin{array}{c}
+1\\
+0\\
+-1\\
+1
+\end{array} \right) = \alpha_1,
+v_2 = \left( \begin{array}{c}
+-2\\
+1\\
+0\\
+0
+\end{array} \right) = \alpha_3
+\end{gather*}
+Lastly we need to calculate $\alpha_2,\alpha_4$.
+We can use the formulas, where we use $|$  to show the difference between $\alpha_1,\alpha_3$, because both share the same eigenvalue, the matrices and linear equations are the same. 
+\begin{gather*}
+(A-I)\alpha_2 = \alpha_1 \\
+(A-I)\alpha_4 = \alpha_3 \\
+a+2b +2c +d = 1 | -2\\
+-a -2b -3c -2d =0 | 1 \\
+a + 2b +4c +3d = -1 | 0\\
+-a -2b -4c -3d = 1 | 0
+\end{gather*}
+Finally we get for $\alpha_2,\alpha_4$:
+\begin{gather*}
+\alpha_2 = \left( \begin{array}{c}
+3 \\
+0\\
+-1\\
+0
+\end{array} \right),
+\text{ we set } b = 0, d = 0 \\
+\alpha_4 = \left( \begin{array}{c}
+-4 \\
+0\\
+1\\
+0
+\end{array} \right) 
+\text{ we set } b = 0, d = 0 
+\end{gather*}
+\begin{gather*}
+S=\left( \begin{array}{cccc}
+1 & 3 & -2 &-4 \\
+0& 0 &1&0\\
+-1& -1 & 0 & 1 \\
+1& 0 & 0&0
+\end{array} \right)\\
+J = \left( \begin{array}{cccc}
+1 & 1 & & \\
+& 1 &&\\
+& & 1 & 1 \\
+& & &1
+\end{array} \right)\\
+\end{gather*}
+
+
+\section{Exercise 3}
+\paragraph{a}
+Since we have in this case an algebraic multiplicity of $1$, the geometric multiplicity also is $1$, hence the minimal polynomial is the characteristic. Moreover since we have $n$ distinct eigenvectors, the matrix is diagonalizable.
+
+\begin{gather*}
+A = \left( \begin{array}{cc}
+3&2\\
+4&5
+\end{array} \right)\\
+p_A(\lambda) = (3-\lambda)(5-\lambda) - 8 = \lambda^2 - 8\lambda + 7 = (\lambda-7)(\lambda-1)\\
+\lambda_1 = 7, \lambda_2 = 1 \\
+v_1 = \left( \begin{array}{c}
+1\\
+2
+\end{array}\right),
+v_2 = \left( \begin{array}{c}
+-1\\
+1
+\end{array} \right)\\
+p_A(\lambda) = q_A(\lambda) 
+\end{gather*}
+
+\paragraph{b}
+Since we have in this case an algebraic multiplicity of $1$, the geometric multiplicity also is $1$, hence the minimal polynomial is the characteristic. Moreover since we have $n$ distinct eigenvectors, the matrix is diagonalizable.
+
+\begin{gather*}
+A = \left( \begin{array}{ccc}
+2&3&2\\
+0&5&4\\
+0&-2&-1
+\end{array} \right)\\
+p_A(\lambda) = -\lambda ^3  + 6 \lambda^2 - 11 \lambda + 6 = (\lambda-3)(\lambda-2)(\lambda-1)\\
+\lambda_1 =  3,\lambda_2 =2 , \lambda_1 =1 \\
+v_1 = \left( \begin{array}{c}
+-4\\
+-2\\
+1 
+\end{array}\right),
+v_2 = \left( \begin{array}{c}
+1\\
+0\\
+0
+\end{array} \right),
+v_3 = \left( \begin{array}{c}
+1\\
+-1\\
+1
+\end{array} \right)\\
+p_A(\lambda) = q_A(\lambda) 
+\end{gather*}
+The resulting Jordan matrix is a diagonal one, with the respective eigenvalues in it's diagonal.
+
+\paragraph{c}
+%TODO
+\begin{gather*}
+A = \left( \begin{array}{ccc}
+4&6&0\\
+-3&-5&0\\
+3&6&1
+\end{array} \right)\\
+p_A(\lambda) = -\lambda ^3  + 3 \lambda - 2 = (\lambda-1)^2(\lambda+2)\\
+\lambda_1 =  -2,\lambda_2 =1 , \lambda_1 =1 \\
+v_1 = \left( \begin{array}{c}
+1\\
+-1\\
+1 
+\end{array}\right),
+v_2 = \left( \begin{array}{c}
+0\\
+0\\
+1
+\end{array} \right),
+v_3 = \left( \begin{array}{c}
+-2\\
+1\\
+0
+\end{array} \right)\\
+q_A(\lambda) = (\lambda-1)(\lambda+2)
+\end{gather*}
+Since we have three distinct eigenvectors, the resulting Jordan form will be diagonal, hence we can reduce the characteristic polynomial into the form of $q_A(\lambda)$.
+
+\paragraph{d}
+%TODO
+This matrix is very similar to the one in paragraph c, just one value outside of the diagonal is negated, which isn’t used for calculating the characteristic polynomial. Thus we have the exact same characteristic polynomial, but different eigenvectors corresponding to the eigenvalues.
+\begin{gather*}
+A = \left( \begin{array}{ccc}
+4&6&0\\
+-3&-5&0\\
+-3&6&1
+\end{array} \right)\\
+p_A(\lambda) = -\lambda ^3  + 3 \lambda - 2 = (\lambda-1)^2(\lambda+2)\\
+\lambda_1 =  -2,\lambda_2 =1 , \lambda_1 =1 \\
+v_1 = \left( \begin{array}{c}
+1\\
+-1\\
+3 
+\end{array}\right),
+v_2 = \left( \begin{array}{c}
+0\\
+0\\
+1
+\end{array} \right)
+p_A(\lambda) = q_A(\lambda) 
+\end{gather*}
+As we can see, since we have less than $n$ eigenvectors, the resulting matrix is not diagonalizable.
+\section{Exercise 4}
+It is easy to see that the matrix $A$ is a companion matrix, so the eigenvalues can be easily calculated:
+\begin{gather*}
+p_A(\lambda) = -1 + \lambda - \lambda^2 + \lambda^3 \\
+p_A(\lambda) = 0 \Leftrightarrow \left( \lambda -1 \right)\left( \lambda^2 +1 \right) = 0\\
+\lambda_1 = 1\\
+\lambda_2 = i\\
+\lambda_3 = -i
+\end{gather*}
+Since we have three distinct eigenvalues in this $3 \times 3$ matrix, we can diagonalize it. Moreover we can directly write out the diagonal form for the matrix, yet we need to compute the matrix $P$, in the equation $A = PDP^{-1}$. We calculate $P$ using the eigenvectors of $A$:
+\begin{gather*}
+A-\lambda_1 I =\\
+-x_1 +x_3 = 0\\
+x_1 -x_2 -x_3 = 0\\
+x_2 = 0 \Rightarrow x_1 = x_3\\
+v_1 = \left( \begin{array}{c}
+1 \\
+0 \\
+1
+\end{array} \right),\\
+A-\lambda_2 I =\\
+-ix_1 + x_3 = 0\\
+x_1 - ix_2 - x_3 = 0\\
+x_2 + (1-i) x_3 = 0\\
+x_3 = 1 \Rightarrow x_1 = i, x_2 = -1-i\\
+v_2 = \left( \begin{array}{c}
+i \\
+-1-i \\
+1
+\end{array} \right),
+v_3 = \left( \begin{array}{c}
+-i \\
+-1+i \\
+1
+\end{array} \right)
+\end{gather*}
+So we get the matrix $P$, as :
+\begin{gather*}
+P = \left( \begin{array}{ccc}
+1 & i & -i\\
+0 & -1-i & -1+i \\
+1 & 1 & 1
+\end{array} \right), 
+P^{-1} = \left( \begin{array}{ccc}
+\frac{1}{2} &\frac{1}{2} &\frac{1}{2} \\
+-\frac{1}{4}-\frac{i}{2} & -\frac{1}{4} + \frac{i}{4} & \frac{1}{4} + \frac{i}{4}\\
+-\frac{1}{4}+\frac{i}{2} & -\frac{1}{4}-\frac{i}{4} & \frac{1}{4} - \frac{i}{4}
+\end{array} \right)
+\end{gather*}
+The diagonal matrix $D$ can be written by using the three eigenvalues:
+\begin{gather*}
+D = \left( \begin{array}{ccc}
+1 & &\\
+& -i & \\
+&& i
+\end{array}\right), D^{100} = 
+\left( \begin{array}{ccc}
+1 & &\\
+& 1 & \\
+&& 1
+\end{array} \right) 
+\end{gather*}
+So we rotate our matrix back and obtain $A^100$:
+\begin{gather*}
+A^{100} = P D^{100} P^{-1} \\
+A^{100} = PP^{-1}\\
+A^{100} = I
+\end{gather*}
+
+\section{Exercise 5}
+\paragraph{a}
+We need to show that the matrix $A^n = 0$ is not diagonalizable.
+Since we know that $A = SJS^{-1}$, the properties of both must be similar, meaning that $A^n = SJ^nS^{-1}$. From here on we can say that if $A^n=0$, then $S \neq 0$ and $J^n = 0$.
+Any Nilpotent matrix will suffice to show that the matrix $A$ is not diagonalizable, since for being so, it needs to have $n$ distinct eigenvalues in the diagonal, each with geometric multiplicity $1$.
+The matrix $J$ must be in a similar form like this:
+\begin{gather*}
+J = \left( \begin{array}{ccccc}
+0 & 1 & & &\\
+0 & 0 & 1 &\\
+ &  & \ddots &\ddots\\
+& & & 0 & 1\\ 
+0 & 0 & 0 & 0 & 0
+\end{array}\right)
+\end{gather*}
+Of course it is not necessary that $J$ has ones in all entries above the diagonal, but it has at least one, hence it's nth power will result in $J^n=0$.
+Since all the eigenvalues of this matrix are $0$ with algebraic multiplicity $n$, we cannot diagonalize the matrix, since we would need at least $n$ distinct eigenvalues.
+
+\paragraph{b}
+In this exercise $B$ is assumed having only one eigenvalue and not being diagonal. In this case the Jordan Form of $B$, denoted as $J_B$ looks as follows:
+\begin{gather*}
+J_B = \left( \begin{array}{ccccc}
+\lambda_1 & 1 & & &\\
+0 & \lambda_1 & 1 &\\
+ &  & \ddots &\ddots\\
+& & & \lambda_1 & 1\\ 
+0 & 0 & 0 & 0 & \lambda_1
+\end{array}\right)
+\end{gather*}
+We proof that $B$ is not diagonalizable by contradiction.
+The matrix is only diagonalizable if and only if all $J_B$ are of order $1$. which means $J_B = diag(\lambda_1) = \lambda_1 I$.
+If we put this back to the decomposition, we get:
+\begin{gather*}
+B = S J_B S^{-1} = S(\lambda_1 I)S^{-1} = \lambda_1 I
+\end{gather*}
+This leads to a contradiction, since $I$ is diagonal, but in our assumption $B$ is not assumed to be diagonal. So we can see that the matrix $B$ is not diagonalizable.
