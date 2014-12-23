@@ -1,0 +1,263 @@
+%!TEX root = main.tex
+
+
+\section{Page 174}
+\subsection{Exercise 3}
+Two diagonalizable matrices are similar if all their eigenvalues are equal, meaning that they have the exact same diagonal form. We firstly show that the eigenvalues of two similar matrices $A$ and $B$ need to be the same.
+\begin{gather*}
+A = S^{-1}B S , B = Q \Lambda Q^{-1} , \Lambda \text{ is diagonal } \\
+A = S^{-1} Q \Lambda Q^{-1} S = R \Lambda R^{-1} , R = S^{-1} Q \\
+\Lambda = Q^{-1} B Q \\
+B = Q \Lambda Q^{-1} \Rightarrow A = R \Lambda R^{-1} = R Q^{-1} B Q R^{-1} = S^{-1} B S , S = Q R^{-1}
+\end{gather*}
+As we have shown, $A$ and $B$ can both be diagonalized to a form $\Lambda$, in which they both have the same eigenvalues, which means they both can be decomposed into their diagonal form, using two different matrices $U,V$.
+Since $\Lambda$ is a representation of the eigenvalues of $A,B$ respectively, the eigenvalues are real.
+From here on we pick $U,V$ so that both are unitary, meaning that:
+\begin{gather*}
+A^* = A \\
+A^* = (U \Lambda U^{-1})^{*} = (U^{-1*} \Lambda U^{*}) \neq A
+\end{gather*}
+The same goes for $B$, if $U,V$ are unitary, $A = A^*$ and therefore $A,B$ are unitary similar.
+\begin{gather*}
+A = U \Lambda U^{-1}, B = V \Lambda V^{-1}\\
+\Lambda = U^{-1} A U = V^{-1} B V = U A U ^{*} = V B V^{*}
+\end{gather*}
+So we have shown that if we pick $U,V$ to be unitary, $A,B$ are unitary equivalent.
+
+\subsection{Exercise 13}
+First of all we verify the cauchy-schwarz inequality, let's assume having a map $(A,B) \mapsto tr(AB^*)$, the cauchy-schwarz inequality states that $\left\langle u,v \right\rangle^2 \leq \left\langle u,u \right\rangle \left\langle v,v \right\rangle$, so we get:
+\begin{gather*}
+tr(AB^*)^2 \leq tr(AA^*) tr(BB^*)
+\end{gather*}
+Now since $A$ is in our case hermitian and $B$ is the identity, we get:
+\begin{gather*}
+tr(A)^2 \leq tr (AA^*) tr( I_r I_r^* )  =   tr (AA^*) tr( I_r ) = r * tr (AA^*)  \\
+\therefore \left( \sum_i^r \lambda_i \right)^2 \leq r \sum_i^r \lambda_i^2 
+\end{gather*}
+Since $r$ is the amount of nonzero eigenvalues in the diagonalized form of $A$, it is equivalent to the rank of $A$. We can rearrange the above equation to get:
+\begin{gather*}
+r \geq \frac{tr(A)^2}{tr(A^2)}
+\end{gather*}
+This equation will resolve into an equality if $A = aI = aU^*U$, since:
+\begin{gather*}
+tr(A)^2 \leq tr (AA^*) * tr( I_r I_r^* )\\
+a*tr(I)^2 = a * tr (I) * tr(I_r I_r^*) = \\
+a r^2 = a r r = a r^2
+\end{gather*}
+
+\section{Page 198}
+\subsection{Exercise 1}
+Weyls theorem states that:
+\begin{gather*}
+\lambda_1 (B) + \lambda_k(A) \leq \lambda_k (A+B) \leq \lambda_n(B) + \lambda_k(A) 
+\end{gather*}
+From here on we can simply subtract by $\lambda_k(A)$ and get:
+\begin{gather*}
+\lambda_1(B) \leq \lambda_k(A+B) -\lambda_k(A) \leq  \lambda_n(B)
+\end{gather*}
+Moreover we can extend this inequality by using $a \leq b \leq c = |b| \leq \max(a,c)$.
+In our case, this can be represented as:
+\begin{gather*}
+\left|\lambda_k (A+B) -\lambda_k(A) \right| \leq \max (\lambda_1 (B),\lambda_n (B)) \\
+= \rho(B)
+\end{gather*}
+\subsection{Exercise 7}
+Asked already Miss Wang Fang, she didn't had an Idea how to solve this either.
+%TOO HARD
+\subsection{Exercise 14}
+Once again we use Weyls theorem:
+\begin{gather*}
+\lambda_i(A) = \lambda_i(B+A-B)\\
+\lambda_i(B) + \lambda_1 (A-B) \leq \lambda_i(B+A-B) = \lambda_i(A)\\
+\text{ Since } A-B > 0 \\
+\lambda_i(B) \leq \lambda_i(B) + \lambda_1 (A-B) \leq \lambda_i(B+A-B) = \lambda_i(A)
+\end{gather*}
+So we can finally see that $\lambda_i(A) \geq \lambda_i(B)$ as required.
+
+\section{Page 400}
+\subsection{Exercise 1}
+Let $A \in M_n$, positive semi definite ( it is Hermitian )
+
+Consider $p(t) = (x+ ty)^* A (x+ty) , t\in R$
+Assume that $x^* Ax = 0$
+We get:
+\begin{gather*}
+p(t) = x^* A x + t^2 y^* A y + t( y^* Ax + x^8 Ay ) = \\
+0 + \underbrace{t^2 y^* A y}_{\geq 0} + t ( y^* Ax + x^* A y ) 
+\end{gather*}
+We can see that the term $t ( y^* Ax + x^* A y ) \geq 0$, since $A$ is positive definite and so $z^*Az \geq 0$, for any $z$.
+
+Clearly $p(0) =0$, therefore $p$ has a minimum at $t=0$.
+\begin{gather*}
+\frac{\delta p}{\delta t} = 2 t y^* Ay + y^* Ax + x^* A y\\
+\text{ at } t = 0 : y^* A x + x^* A y = 0 \\
+\text{ let } z = Ax\\
+= y^* z + z^* y = 0
+\end{gather*}
+We choose $y = z$:
+\begin{gather*}
+\frac{\delta p}{\delta t} =  z^*z + z^* z = 2 | z | ^2 = 0 \Rightarrow z =0 , y =0 ,  Ax = 0 \\
+\Rightarrow y^* Ax = 0
+\end{gather*}
+
+\subsection{Exercise 2}
+Assume any $2 \times 2$ principal submatrix of $A$:
+\begin{gather*}
+B = \left( \begin{array}{cc}
+a_{ii} & a_{ij}\\
+a_{ji} & a_{jj}
+\end{array} \right)
+\end{gather*}
+Since $A$ is positive semidefininte, it's determinate is $ \geq 0$. Furthermore all its principal sub-matrices are also positive semi definite so that det$(B)\geq 0$. Recall that since $B$ is positive definite it is also hermitian, so :
+\begin{gather*}
+B = \left( \begin{array}{cc}
+a_{ii} & a_{ij}\\
+\overline{a_{ij}} & a_{jj}
+\end{array} \right)\\
+\text{ det} (B)  = a_{ii}a_{jj} - |a_{ij}|^2 \geq 0  \Rightarrow a_{ii}a_{jj} \geq |a_{ij}|^2
+\end{gather*}
+Let the $i$ th diagonal element be zero , $a_{ii} = 0$:
+\begin{gather*}
+|a_{ij}|^2 \leq 0  \Rightarrow |a_{ij}| = 0 \quad \quad \quad \forall 1 \leq j \leq n
+\end{gather*}
+Hence $i$th row of $A = 0$. Since $A$ is hermitian, the $i$th column is also $0$.
+
+\section{Page 409}
+\subsection{Exercise 10}
+We know that any matrix can be decomposed into a $PLUQ$ form. In this form, we can easily see that the rank $r$ are the first $r$ rows which are having a non zero diagonal entry in the $L$ matrix ( or $U$, depending on how we define $L$ and $U$ ). If we have the $LU$ decomposition, we generally need to swap rows by using the matrix $P$ and swap columns using the matrix $Q$. If we apply these two rotations onto $A$, we can simply pick the first $r$ rows and $r$ columns of $A$ and use this submatrix, which is definitely invertible.
+\begin{gather*}
+A = PLUQ \\
+P^{-1} A Q^{-1} = LU
+\end{gather*}
+Moreover since we have principal sub matrices, we can set $P = Q$.
+\subsection{Exercise 11}
+In the case of having a classical adjoint, where $A > 0$ we get:
+\begin{gather*}
+A \text{adj}(A) = |A|
+\end{gather*}
+Here we can already see that if $A$ is invertible it is positive definite.
+For the more strict case that $A \geq 0$, we can assume having a small epsilon $\epsilon$, which leads to having $A_{\epsilon} = A + \epsilon I$.
+By the same conclusion from above we have:
+\begin{gather*}
+A_{\epsilon} \text{adj}(A_{\epsilon}) = |A_{\epsilon}|
+\end{gather*}
+Once again we implicitly assume that $A$ is invertible. We have shown that if $A_\epsilon$ is positive semidefinite $adj(A_\epsilon)$ is semi-definite too and det$A_{\epsilon}\geq 0$
+\subsection{Exercise 12}
+\paragraph{a}
+The matrix $A$ looks as the following:
+\begin{gather*}
+A = \left( \begin{array}{cccccc}
+1 & r & r^2 & r^3 & \ldots & r^{n-1} \\
+r & 1 & r & r^2  & \ldots & r^{n-2} \\
+r^2 & r & \ddots & & \ddots & \vdots\\
+r^3 & r^2 & \ddots & \ddots & r& r^2\\
+\vdots &  &  \ddots & r  & 1 & r \\
+r^{n-1} & r^{n-2} & \ldots & r^2 & r & 1 
+\end{array} \right)
+\end{gather*}
+From here on we can see that if we calculate any Minor $A_{ij}$, get for $|i-j|< 2$ a matrix of this form ( we simply use any minor at the super or sub diagonal):
+\begin{gather*}
+A_{1,2} =  \left( \begin{array}{ccc}
+r & r & \ldots \\
+r^2 & 1 & \ldots \\
+r^3 & r & \ldots
+\end{array} \right)
+\end{gather*}
+Here we can see, that the rows and columns are still linearly independent from each other, but if we use any $|i,j| \geq 2$, we get:
+\begin{gather*}
+A_{1,3} = \left( \begin{array}{ccc}
+r & 1 & \ldots \\
+r^2 & r & \ldots \\
+r^3 & r^2 & \ldots \\
+\vdots & \vdots & \vdots\\
+r^{n-1} & r^{n-2}
+\end{array} \right)
+\end{gather*}
+As it can be seen any sub matrix which is generated using $|i-j|\geq 2$ will result in having a linear dependency between at least two columns, which would result in having non full rank, meaning that determinate is also zero.
+\paragraph{b}
+Assuming we calculate the determinant by the general formula, which is:
+\begin{gather*}
+\det(A) = \sum_{j=1}^n (-1)^{i+j} a_{i,j} M_{i,j} = \sum_{i=1}^n (-1)^{i+j} a_{i,j} M_{i,j}.
+\end{gather*}
+We choose to expand over the rows, beginning with $i = 1$:
+\begin{gather*}
+D_{n+1} = (-1)^{1+1} D_{n} + (-1)^{1+2} r * det \left( \begin{array}{cccccc}
+r & r & r^2 & r^3 & \ldots & r^{n-2} \\
+r^2 & 1 & r & r^2  & \ldots & r^{n-3} \\
+r^3 & r & 1 & & \ddots & \vdots\\
+r^4 & r^2 & \ddots & \ddots & r& r^2\\
+\vdots &  &  \ddots & r  & 1 & r \\
+r^{n-1} & r^{n-3} & \ldots & r^2 & r & 1 
+\end{array} \right)
+\end{gather*}
+It can be seen that the determinant on the RHS has in it's first column a common factor, which is $r$, removing this factor leads to:
+\begin{gather*}
+D_{n+1} = (-1)^{1+1} D_{n} + (-1)^{1+2} r * r * det \left( \begin{array}{cccccc}
+1 & r & r^2 & r^3 & \ldots & r^{n-2} \\
+r & 1 & r & r^2  & \ldots & r^{n-3} \\
+r^2 & r & 1 & & \ddots & \vdots\\
+r^3 & r^2 & \ddots & \ddots & r& r^2\\
+\vdots &  &  \ddots & r  & 1 & r \\
+r^{n-2} & r^{n-3} & \ldots & r^2 & r & 1 
+\end{array} \right) = D_n - r^2 D_n
+\end{gather*}
+All other terms are not necessary since we have shown already in exercise $a$, that the minors if $|i-j| \geq 2$ are 0.
+Since the formula $D_{n+1} = D_n - r^2 D_n $ is recursive, we can simplify it into: $D_{n+1} = (1- r^2) D_n $, where we see that again $D_n = (1-r^2)D_{n-1} $ and so on until $D_1 = 1$, which means we apply $(1-r^2)$ $n$ times, resulting in $D_{n+1} = (1-r^2)^n$ 
+So we have shown that $D_{n+1} = D_n - r^2 D_n = (1-r^2) D_n = (1-r^2)^n$
+
+\paragraph{c}
+As already shown in paragraph $b$, we can calculate the prinipal minors $D_1 , D_2 , \ldots , D_{n}$. As we can see in the matrix, the diagonal entries are all $1$, meaning that $D_1=1$. From here on we calculate $D_2 = (1-r^2) D_1$, which is $D_2 = (1-r^2)$. Since $r \in (0,1)$, $D_2 > 0$, which means that all the following determinants $D_3, \ldots , D_n$ will be strictly larger than 0. We can conclude that $A$ only has positive minors, therefore is positive definite.
+\subsection{Exercise 13}
+In Problem 12 we already have shown that the matrix $A$ is symmetric, hence it is automatically triagonal and also hermitian ( is real ), thus it has only real eigenvalues, thus having only real entries. 
+The inverse of the matrix $A$ is also symmetric :
+\begin{gather*}
+(A^T)^{-1} = (A^{-1})^T \\
+A^T(A^{-1})^T=(A^{-1}A)^T=I
+\end{gather*}
+So we can determine the values for $A^{-1}$, using the property that if we use $A^{-1} = \frac{adj(A)}{det(A)}$, we know that the elements where $|i-j| \geq 2$ are zero, so we can easily calculate the entries.
+\begin{gather*}
+A A^{-1} = I \\
+A^{-1} = \left(\begin{array}{ccccc}
+\frac{1}{1-r^2} & \frac{r}{r^2-1} & 0 & 0 & 0\\
+\frac{r}{r^2-1}  & \frac{r^2+1}{1-r^2} & \frac{r}{r^2-1} & 0 & 0\\
+0 &\frac{r}{r^2-1}  & \frac{r^2+1}{1-r^2} & \frac{r}{r^2-1} & 0 \\
+0 & 0 & \ddots & \ddots & \vdots \\
+0 & 0 & 0 & \frac{r}{r^2-1} & \frac{1}{1-r^2}
+\end{array} \right)
+\end{gather*}
+If we now multiply $A^{-1}$ with $(1-r^2)$, we obtain the matrix which is searched for:
+\begin{gather*}
+(1-r^2) A^{-1} =  \left(\begin{array}{ccccc}
+1 & -r & 0 & 0 & 0 \\
+-r & 1+r & -r & 0 & 0\\
+0 & -r & \ddots & -r & 0 \\
+0 & 0 & -r & 1+r & -r\\
+0 & 0 & 0 & -r & 1
+\end{array} \right)
+\end{gather*}
+
+\section{Gershgorin Exercise}
+We have given the following matrix and need to find out if it's diagonalizable:
+\begin{gather*}
+A = \left( \begin{array}{ccccc}
+2 & 2^{-1} & 2^{-2} & \ldots & 2^{-(n-1)}\\
+\frac{2}{3} & 4 & \frac{2}{3^2}& \ldots & \frac{2}{3^{n-1}}\\
+\frac{3}{4} & \frac{3}{4^2} & 6 & \ldots & \frac{3}{4^{n-1}}\\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\frac{n}{n+1} & \frac{n}{(n+1)^2} & \frac{n}{(n+1)^3} & \ldots & 2n
+\end{array}  \right)
+\end{gather*}
+We firstly generally calculate the sum for the off diagonal elements, for a given row $p = 1,\ldots,n$ 
+\begin{gather*}
+\left( \sum_{i=1}^{n-1} \frac{p}{(p+1)^i} \right) =\\
+s_n = \frac{p}{(p+1)} + \frac{p}{(p+1)^2} + \ldots \frac{p}{(p+1)^{n-1}}\\
+(p+1) s_n = \frac{p(p+1)}{(p+1) } + \frac{p(p+1)}{(p+1)^2} + \ldots \frac{p(p+1)}{(p+1)^{n-1}}\\
+(p+1) s_n =  p + \frac{p}{(p+1)} + \frac{p}{(p+1)^2} + \ldots \frac{p}{(p+1)^{n-2}}\\
+(p+1) s_n = p + s_n - \frac{p}{(p+1)^{n-1}}\\
+(p+1) s_n - s_n = p - \frac{p}{(p+1)^{n-1}}\\
+p s_n = p - \frac{p}{(p+1)^{n-1}}\\
+s_n = 1 - \frac{1}{(p+1)^{n-1}}
+\end{gather*}
+We can see that all rows are bounded by $1$. So we can assume that we have $n$ distinct disks, which are all centered at $2p$ with radius $1$, meaning they lie within $(2p-1;2p+1), p = 1,\ldots,n$. Moreover we can say that since the matrix $A$ is clearly diagonally dominant and no disk encloses zero, it is invertible.
+We can see that since no disks intersect each other, we get $n$ distinct eigenvalues, moreover since all circles are disjoint, we can only have real eigenvalues. Therefore the Jordan normal form has $n$ distinct blocks, or in other words, it is diagonal. 
+We have proven that the matrix $A$ is diagonalizable.
